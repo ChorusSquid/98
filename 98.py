@@ -163,4 +163,4 @@ async def help(ctx):
     emb.add_field(name = "98!help", value = "Shows commands.", inline = False)
     await ctx.send(embed=emb)
                         
-nine.run(os.environ.get["BOT_TOKEN"])
+nine.run(os.environ["BOT_TOKEN"])
