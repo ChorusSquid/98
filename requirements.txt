@@ -1,0 +1,5 @@
+discord.py>=1.0.0a
+bs4
+urllib
+urllib.request
+wikia
