@@ -1,5 +1,3 @@
 discord.py
-bs4
-urllib
-urllib.request
+BeautifulSoup
 wikia
