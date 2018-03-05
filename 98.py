@@ -162,4 +162,4 @@ async def help(ctx):
     emb.add_field(name = "98!help", value = "Shows commands.", inline = False)
     await ctx.send(embed=emb)
                         
-nine.run(process.env.BOT_TOKEN)
+nine.run(BOT_TOKEN)
