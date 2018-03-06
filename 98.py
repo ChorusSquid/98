@@ -21,7 +21,7 @@ classes = {"DT": ["`'Determination: Start the game with 1 extra life. When you w
 
 arts = {"Normal": {"Copycat": "Shuffle your starting hand into your deck. Add a copy of your opponent's hand into your hand.",
                    "Draw": "Draw one more card every 5 turns.",
-                   "Experience": "Increase XP reqard by 25%.",
+                   "Experience": "Increase XP reward by 25%.",
                    "Froggits": "Summon 2 ally Tiny Froggits when your first turn begins.",
                    "Health": "Start the game with 35/35 HP.",
                    "Hourglass": "Your Future effects are triggered one turn earlier.",
