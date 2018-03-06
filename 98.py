@@ -44,7 +44,7 @@ arts = {"Normal": {"Copycat": "Shuffle your starting hand into your deck. Add a 
                    "Sea Tea": "Start of turn: Restore 3 HP to a random damaged ally monster.",
                    "Torn Notebook": "Start of turn: Deal 1 damage to a random enemy monster."}}
 
-nine = commands.Bot(command_prefix = "98!", description = "* I Am 98, A Bot Dedicated to the Card Game Known As 'Undercards'.")
+nine = commands.Bot(command_prefix = "98!", description = "* I Am 98, A Bot Dedicated to the Card Game Known As 'Undercards'.", case_insensitive = True)
 cli = discord.Client
 
 def get_images(url, card, rat = None):
@@ -76,7 +76,7 @@ def get_images(url, card, rat = None):
 
 @nine.event
 async def on_ready():
-    await nine.change_presence(activity=discord.Streaming(name='Undercards ❤', url='https://undercards.net/'), case_insensitive = True)
+    await nine.change_presence(activity=discord.Streaming(name='Undercards ❤', url='https://undercards.net/'))
     
 @nine.command(pass_context=True)
 async def greet(ctx):
