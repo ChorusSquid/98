@@ -38,7 +38,11 @@ arts = {"Normal": {"Copycat": "Shuffle your starting hand into your deck. Add a 
         "Legendary": {"Arcane Scepter": "Whenever you cast a spell, cast a random spell on a random target.",
                       "Criticals": "Your monsters have a 20% chance to deal 100% bonus damage while attacking.",
                       "Mines": "Add a Little Mine, Mine and a Big Mine in the opponent's deck at the start of the game (deal damage to the player when drawn).",
-                      "Science": "Your Gaster Blasters deal 1 bonus damage. Add 5 Gaster Blasters to your deck at the start of the game."}}
+                      "Science": "Your Gaster Blasters deal 1 bonus damage. Add 5 Gaster Blasters to your deck at the start of the game."},
+        "Gerson": {"Cloudy Glasses": "Start of turn: Give +1 HP to a random ally monster.",
+                   "Crab Apple": "Start of turn: Give +1 ATK to a random ally monster.",
+                   "Sea Tea": "Start of turn: Restore 3 HP to a random damaged ally monster.",
+                   "Torn Notebook": "Start of turn: Deal 1 damage to a random enemy monster."}}
 
 nine = commands.Bot(command_prefix = "98!", description = "* I Am 98, A Bot Dedicated to the Card Game Known As 'Undercards'.")
 cli = discord.Client
@@ -150,13 +154,15 @@ async def artifact(ctx, *args):
     for a in args:
         art += str(a) + " "
     art = art[:-1].title()
-    if art not in arts["Normal"] and art not in arts["Legendary"]:
+    if art not in arts["Normal"] and art not in arts["Legendary"] and art not in arts["Gerson"]:
         await ctx.send("`* Artifact Not Found.`")
     else:
         if art in arts["Normal"]:
             await ctx.send("`'" + art + " | Normal | " + arts["Normal"][art] + "'`")
         elif art in arts["Legendary"]:
-            await ctx.send("`'" + art + " | Legendary | " + arts["Legendary"][art] + "'`")        
+            await ctx.send("`'" + art + " | Legendary | " + arts["Legendary"][art] + "'`")
+        elif art in arts["Gerson"]:
+            await ctx.send("`'" + art + " | Gerson | " + arts["Gerson"][art] + "'`")       
     
 def wild(card):
     global cards
