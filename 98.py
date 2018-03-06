@@ -150,7 +150,7 @@ async def artifact(ctx, *args):
     for a in args:
         art += str(a) + " "
     art = art[:-1].title()
-    if art not in [arts["Normal"], arts["Legendary"]]:
+    if art not in arts["Normal"] or art not in arts["Legendary"]:
         await ctx.send("`* Artifact Not Found.`")
     else:
         if art in arts["Normal"]:
@@ -196,6 +196,7 @@ async def help(ctx):
     emb.add_field(name = "98!greet", value = "Says hello.", inline = False)
     emb.add_field(name = "98!check <card>", value = "Checks Undercards Wiki for the requested card.\n('...' for autocomplete, but only with full keywords)", inline = False)
     emb.add_field(name = "98!soul <soul>", value = "Returns information on the specified soul, and a random spell of that class.", inline = False)
+    emb.add_field(name = "98!artifact <artifact>", value = "Returns a description of the requested artifact.", inline = False)
     emb.add_field(name = "98!help", value = "Shows commands.", inline = False)
     await ctx.send(embed=emb)
                         
