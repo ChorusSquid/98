@@ -116,9 +116,9 @@ async def check(ctx, *args):
             card = gen[card.title().replace("To", "to").replace("Of", "of")[:-1]]
             for bit in gen:
                 if rat.title()[:-1] in bit:
-                    url = "http://undercards.wikia.com/wiki/" + gen[bit].replace(" ", "_").title().replace("To", "to").replace("Of", "of").replace("'S", "'s")
+                    url = "http://undercards.wikia.com/wiki/" + gen[bit].replace(" ", "_").title().replace("To", "to").replace("Of", "of").replace("'S", "'s").replace("Neo", "NEO")
         if not url:
-            url = "http://undercards.wikia.com/wiki/" + card.replace(" ", "_").title().replace("To", "to").replace("Of", "of").replace("'S", "'s")
+            url = "http://undercards.wikia.com/wiki/" + card.replace(" ", "_").title().replace("To", "to").replace("Of", "of").replace("'S", "'s").replace("Neo", "NEO")
         await ctx.send(get_images(url, card, rat))
     else:
         await ctx.send(wild(card))
@@ -212,9 +212,9 @@ def wild(card):
             card = pages[0]
         for bit in gen:
             if card.title()[:-1] in bit:
-                url = "http://undercards.wikia.com/wiki/" + gen[bit].replace(" ", "_").title().replace("To", "to").replace("Of", "of").replace("'S", "'s")
+                url = "http://undercards.wikia.com/wiki/" + gen[bit].replace(" ", "_").title().replace("To", "to").replace("Of", "of").replace("'S", "'s").replace("Neo", "NEO")
         if not url:
-            url = "http://undercards.wikia.com/wiki/" + card.replace(" ", "_").title().replace("To", "to").replace("Of", "of").replace("'S", "'s")
+            url = "http://undercards.wikia.com/wiki/" + card.replace(" ", "_").title().replace("To", "to").replace("Of", "of").replace("'S", "'s").replace("Neo", "NEO")
         return get_images(url, card, rat)
 
 nine.remove_command("help")
