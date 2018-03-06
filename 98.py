@@ -150,7 +150,7 @@ async def artifact(ctx, *args):
     for a in args:
         art += str(a) + " "
     art = art[:-1].title()
-    if art not in arts["Normal"] or art not in arts["Legendary"]:
+    if art not in arts["Normal"] and art not in arts["Legendary"]:
         await ctx.send("`* Artifact Not Found.`")
     else:
         if art in arts["Normal"]:
