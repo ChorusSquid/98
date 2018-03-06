@@ -148,7 +148,7 @@ async def artifact(ctx, *args):
     """Gives a description of the requested artifact."""
     art = ""
     for a in args:
-        art += a + " "
+        art += str(a) + " "
     art = art[:-1].title()
     if art not in [arts["Normal"], arts["Legendary"]]:
         await ctx.send("`* Artifact Not Found.`")
