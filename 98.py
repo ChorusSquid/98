@@ -76,7 +76,7 @@ def get_images(url, card, rat = None):
 
 @nine.event
 async def on_ready():
-    await nine.change_presence(activity=discord.Streaming(name='Undercards ❤', url='https://undercards.net/'))
+    await nine.change_presence(activity=discord.Streaming(name='Undercards ❤', url='https://undercards.net/'), case_insensitive = True)
     
 @nine.command(pass_context=True)
 async def greet(ctx):
