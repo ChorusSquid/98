@@ -154,9 +154,9 @@ async def artifact(ctx, *args):
         await ctx.send("`* Artifact Not Found.`")
     else:
         if art in arts["Normal"]:
-            await ctx.send("`" + art + " | Normal | " + arts["Normal"][art] + "`")
+            await ctx.send("`'" + art + " | Normal | " + arts["Normal"][art] + "'`")
         elif art in arts["Legendary"]:
-            await ctx.send("`" + art + " | Legendary | " + arts["Legendary"][art] + "`")        
+            await ctx.send("`'" + art + " | Legendary | " + arts["Legendary"][art] + "'`")        
     
 def wild(card):
     global cards
