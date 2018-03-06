@@ -158,7 +158,7 @@ async def artifact(ctx, *args):
         art += str(a) + " "
     art = art[:-1].title()
     if not art:
-        if randint(1, 2) = 1:
+        if randint(1, 2) == 1:
             art = choice(list(arts["Normal"].keys()))
         else:
             art = choice(list(arts["Legendary"].keys()))       
