@@ -19,6 +19,27 @@ classes = {"DT": ["`'Determination: Start the game with 1 extra life. When you w
            "KINDNESS": ["`'Kindness: At the end of your turn, restore 2 hp to you and 1 hp to all your monsters.'`", 'Feast', 'Force of Nature', 'Heal', 'Heal Delivery', 'Longevity', 'Pie', 'Soothing', 'Test of Will'],
            "JUSTICE": ["`'Justice: At the end of your turn, deal 1 damage to a random enemy monster.\nIf you have less HP than your opponent, deal 1 bonus damage to him.'`", 'Explosion', 'Headshot', 'Multi Shot', 'Punishment', 'Shootout', 'Strafe', "Undyne's Spears"]}
 
+arts = {"Normal": {"Copycat": "Shuffle your starting hand into your deck. Add a copy of your opponent's hand into your hand.",
+                   "Draw": "Draw one more card every 5 turns.",
+                   "Experience": "Increase XP reqard by 25%.",
+                   "Froggits": "Summon 2 ally Tiny Froggits when your first turn begins.",
+                   "Health": "Start the game with 35/35 HP.",
+                   "Hourglass": "Your Future effects are triggered one turn earlier.",
+                   "Poke": "Deal 5 damage to your opponent at the start of the game.",
+                   "Power": "Give +1/+1 to 4 random monsters in your deck when the game begins.",
+                   "Preservation": "You can't draw when your hand is full.",
+                   "Prosperity": "Whenever you play a monster, heal yourself by 20% of its cost.
+                   "Reinforcement": "Add 5 random monsters with +2/+2 at the end of your deck when the game begins.",
+                   "Solidity": "Give +1 HP to your Taunt monsters when the game begins.",
+                   "Spy": "Reveal your opponent's hand at the first and every 5 turns.",
+                   "Veteran": "Your monsters gain +1 ATK whenever they attack and kill a monster.",
+                   "Vitality": "Whenever an ally monster or spell heals a damaged monster to max HP, give +1 HP to the target.",
+                   "Will": "Your monsters with Can't attack can attack."}
+        "Legendary": {"Arcane Scepter": "Whenever you cast a spell, cast a random spell on a random target.",
+                      "Criticals": "Your monsters have a 20% chance to deal 100% bonus damage while attacking.",
+                      "Mines": "Add a Little Mine, Mine and a Big Mine in the opponent's deck at the start of the game (deal damage to the player when drawn).",
+                      "Science": "Your Gaster Blasters deal 1 bonus damage. Add 5 Gaster Blasters to your deck at the start of the game."}
+
 nine = commands.Bot(command_prefix = "98!", description = "* I Am 98, A Bot Dedicated to the Card Game Known As 'Undercards'.")
 cli = discord.Client
 
@@ -121,6 +142,21 @@ async def soul(ctx, *args):
         await ctx.invoke(check, spell)
     else:
         await ctx.send("`* Soul Not Found.`")
+        
+@nine.command(pass_context=True)
+async def artifact(ctx, *args):
+    """Gives a description of the requested artifact."""
+    art = ""
+    for a in args:
+        art += a + " "
+    art = art[:-1].title()
+    if art not in [arts["Normal"], arts["Legendary"]]:
+        await ctx.send("`* Artifact Not Found.`")
+    else:
+        if art in arts["Normal"]:
+            await ctx.send("`" + art + " | Normal | " + arts["Normal"][art] + "`")
+        elif art in arts["Legendary"]:
+            await ctx.send("`" + art + " | Legendary | " + arts["Legendary"][art] + "`")        
     
 def wild(card):
     global cards
