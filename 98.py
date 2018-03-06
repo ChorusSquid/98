@@ -109,6 +109,8 @@ async def check(ctx, *args):
     for l in args:
         card += str(l) + " "
     if not card.endswith("... "):
+        if not card:
+            card = choice(cards)
         if card.title().replace("To", "to").replace("Of", "of").replace("'S", "'s")[:-1] in gen:
             rat = card
             card = gen[card.title().replace("To", "to").replace("Of", "of")[:-1]]
@@ -128,8 +130,8 @@ async def soul(ctx, *args):
     spell = None
     if len(args) > 1:
         await ctx.send("`* I Can Only Handle One Soul At A Time.`")
-    elif len(args) == 0:
-        pass
+    elif not args:
+        Class = choice(list(classes.keys()))
     else:
         Class = args[0].upper()
     if Class == "DETERMINATION":
@@ -155,6 +157,11 @@ async def artifact(ctx, *args):
     for a in args:
         art += str(a) + " "
     art = art[:-1].title()
+    if not art:
+        if randint(1, 2) = 1:
+            art = choice(list(arts["Normal"].keys()))
+        else:
+            art = choice(list(arts["Legendary"].keys()))       
     if art.endswith("..."):
         for i in arts["Normal"]:
             if art[:-3] in i:
