@@ -28,17 +28,17 @@ arts = {"Normal": {"Copycat": "Shuffle your starting hand into your deck. Add a 
                    "Poke": "Deal 5 damage to your opponent at the start of the game.",
                    "Power": "Give +1/+1 to 4 random monsters in your deck when the game begins.",
                    "Preservation": "You can't draw when your hand is full.",
-                   "Prosperity": "Whenever you play a monster, heal yourself by 20% of its cost.
+                   "Prosperity": "Whenever you play a monster, heal yourself by 20% of its cost.",
                    "Reinforcement": "Add 5 random monsters with +2/+2 at the end of your deck when the game begins.",
                    "Solidity": "Give +1 HP to your Taunt monsters when the game begins.",
                    "Spy": "Reveal your opponent's hand at the first and every 5 turns.",
                    "Veteran": "Your monsters gain +1 ATK whenever they attack and kill a monster.",
                    "Vitality": "Whenever an ally monster or spell heals a damaged monster to max HP, give +1 HP to the target.",
-                   "Will": "Your monsters with Can't attack can attack."}
+                   "Will": "Your monsters with Can't attack can attack."},
         "Legendary": {"Arcane Scepter": "Whenever you cast a spell, cast a random spell on a random target.",
                       "Criticals": "Your monsters have a 20% chance to deal 100% bonus damage while attacking.",
                       "Mines": "Add a Little Mine, Mine and a Big Mine in the opponent's deck at the start of the game (deal damage to the player when drawn).",
-                      "Science": "Your Gaster Blasters deal 1 bonus damage. Add 5 Gaster Blasters to your deck at the start of the game."}
+                      "Science": "Your Gaster Blasters deal 1 bonus damage. Add 5 Gaster Blasters to your deck at the start of the game."}}
 
 nine = commands.Bot(command_prefix = "98!", description = "* I Am 98, A Bot Dedicated to the Card Game Known As 'Undercards'.")
 cli = discord.Client
