@@ -76,7 +76,7 @@ def get_images(url, card, rat = None):
 
 @nine.event
 async def on_ready():
-    await nine.change_presence(game=discord.Game(name='Undercards ❤', url='https://undercards.net/', type=1))
+    await nine.change_presence(activity=discord.Streaming(name='Undercards ❤', url='https://undercards.net/'))
     
 @nine.command(pass_context=True)
 async def greet(ctx):
@@ -151,9 +151,26 @@ async def soul(ctx, *args):
 async def artifact(ctx, *args):
     """Gives a description of the requested artifact."""
     art = ""
+    fax = []
     for a in args:
         art += str(a) + " "
     art = art[:-1].title()
+    if art.endswith("..."):
+        for i in arts["Normal"]:
+            if art[:-3] in i:
+                fax.append(i)
+        for i in arts["Legendary"]:
+            if art[:-3] in i:
+                fax.append(i)
+        for i in arts["Gerson"]:
+            if art[:-3] in i:
+                fax.append(i)
+        if len(fax) > 1:
+            await ctx.send("`* Here Are The Artifacts I Found: " + str(fax).replace("[", "").replace("]", "") + "`")
+        elif not fax:
+            pass
+        else:
+            art = fax[0]
     if art not in arts["Normal"] and art not in arts["Legendary"] and art not in arts["Gerson"]:
         await ctx.send("`* Artifact Not Found.`")
     else:
@@ -162,7 +179,7 @@ async def artifact(ctx, *args):
         elif art in arts["Legendary"]:
             await ctx.send("`'" + art + " | Legendary | " + arts["Legendary"][art] + "'`")
         elif art in arts["Gerson"]:
-            await ctx.send("`'" + art + " | Gerson | " + arts["Gerson"][art] + "'`")       
+            await ctx.send("`'" + art + " | Gerson | " + arts["Gerson"][art] + "'`") 
     
 def wild(card):
     global cards
