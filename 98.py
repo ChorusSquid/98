@@ -171,7 +171,7 @@ async def artifact(ctx, *args):
             pass
         else:
             art = fax[0]
-    if art not in arts["Normal"] and art not in arts["Legendary"] and art not in arts["Gerson"]:
+    if (art not in arts["Normal"] and art not in arts["Legendary"] and art not in arts["Gerson"]) and not fax:
         await ctx.send("`* Artifact Not Found.`")
     else:
         if art in arts["Normal"]:
