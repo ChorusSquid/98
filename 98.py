@@ -8,8 +8,9 @@ from urllib.request import urlopen, urlretrieve
 from random import *
 import os
 
-cards = ['Aaron', "Aaron's Secret", 'Acceleration', 'Allergic Temmie', 'Alphys', 'Angel of Death', 'Annoying Dog', 'Another Chance', 'Asgore', 'Asriel', 'Asriel Dreemurr', 'Assault', 'Astigmatism', 'Big Bob', 'Big Bomb', 'Big Mouth', 'Blue Laser', 'Blue Snail', 'Bob', 'Bomb', 'Brain Freeze', 'Brain Shift', 'Bratty', 'Break', 'Bridge Seed', 'Bunbun', 'Burgerpants', 'Cactus', 'Candy Dish', 'Casual Undyne', 'Catty', 'Chara', 'Charles', 'Chilldrake', 'Clam Boy', 'Clam Girl', 'Cloning', 'Coffee Man', 'Coffin', 'Cold Winter', 'Contamination', 'Crazy Bun', 'Dancer Mettaton', 'Defrosting', 'Diamond Boy 1', 'Diamond Boy 2', 'Dimensional Box', 'Disco Ball', 'Dog Food', 'Dog House', 'Dogamy', 'Dogaressa', 'Doggo', 'Dummy', 'Echo Fish', 'Echo Flower', 'Elder Puzzler', 'Endogeny', 'Everyman', 'Explosion', 'Expulsion', 'Faun', 'Feast', 'Ferry', 'Final Charge', 'Final Froggit', 'Fire Trap', 'Fishing Rod', 'Flowey', 'Force of Nature', 'Fortune', 'Fridge', 'Frisk', 'Froggit', 'Froggit Trio', 'Fuku Fire', 'Garbage', 'Gaster', 'Gaster Follower 1', 'Gaster Follower 2', 'Gaster Follower 3', 'Gerson', 'Gift Bear', 'Glad Dummy', 'Glyde', 'Golden Flowers', 'Goner Kid', 'Greater Dog', 'Grillby', 'Gyftrot', 'Headshot', 'Heal', 'Heal Delivery', 'Heats Flamesman', 'Hyper Goner', 'Ice', 'Ice Cap', 'Ice Wolf', 'Igloo', 'Inflation', 'Innkeeper', 'Investment', 'Janitor', 'Jerry', 'Knife', 'Knight Knight', 'Lamp', 'Last Dream', 'Lemon Bread', 'Lesser Dog', 'Librarian', 'Longevity', 'Loox', 'Loren', 'MTT Fountain', 'Mace', 'Mad Dummy', 'Madjick', 'Manticore', 'Memorial Statue', 'Memory Head', 'Mettaton', 'Mettaton Ex', 'Mettaton NEO', 'Microwave', 'Migosp', 'Migospel', 'Moldbygg', 'Moldessa', 'Moldsmal', 'Monster Kid', 'Muffet', "Muffet's Pet", 'Multi Shot', 'Nacarat Jester', 'Napstablook', 'Nice Cream Guy', 'Omega Flowey', 'Oni', 'Onion San', 'Orange Laser', 'Papyrus', 'Papyrus Statue', 'Parsnik', 'Penetration', 'Pie', 'Poison', 'Politics Bear', 'Pollutant Gas', 'Protection', 'Punishment', 'Pyrope', 'Reaper Bird', 'Receptionist 1', 'Receptionist 2', 'Receptionist 3', 'Red Bird', 'Red Snail', 'Redacted', 'Resurrection', 'River Person', 'Rock', 'Royal Guard 1', 'Royal Guard 2', 'Sad Customer', 'Sad Dragon', 'Same Fate', 'Sans', 'Scarf Mouse', 'Shambling Mass', 'Sharing', 'Shootout', 'Shopping', 'Shyren', 'Skateboard Girl', 'Slowing', 'Small Bird', 'Snail Trainer', 'Snow Poff', 'Snow Storm', 'Snowdrake', "Snowdrake's Mom", 'Snowman', 'So Sorry', 'Soothing', 'Spider', 'Spider Web', 'Strafe', 'Strength', 'Temmie', 'Temmie Statue', 'Termination', 'Test of Will', 'The Heroine', 'Timer', 'Tiny Froggit', 'Toriel', 'Trader Temmie', 'Trash Tornado', 'Tree', 'Tsunderplane', 'Ugly Fish', 'Undyne', "Undyne's Spears", 'Vegetoid', 'Vulkin', "Vulkin's Cloud", 'Water Cooler', 'Whimsalot', 'Whimsun', 'Will to Fight', 'Worsening', 'Woshua', 'Yellow Snail']
+cards = ['Aaron', 'Allergic Temmie', 'Alphys', 'Angel of Death', 'Annoying Dog', 'Asgore', 'Asriel', 'Asriel Dreemurr', 'Astigmatism', 'Big Bob', 'Big Bomb', 'Big Mouth', 'Blue Laser', 'Blue Snail', 'Bob', 'Bomb', 'Bratty', 'Bridge Seed', 'Bunbun', 'Burgerpants', 'Cactus', 'Candy Dish', 'Casual Undyne', 'Catty', 'Chara', 'Charles', 'Chilldrake', 'Clam Boy', 'Clam Girl', 'Coffee Man', 'Coffin', 'Crazy Bun', 'Dancer Mettaton', 'Diamond Boy 1', 'Diamond Boy 2', 'Dimensional Box', 'Disco Ball', 'Dog Food', 'Dog House', 'Dogamy', 'Dogaressa', 'Doggo', 'Dummy', 'Echo Fish', 'Echo Flower', 'Elder Puzzler', 'Endogeny', 'Everyman', 'Faun', 'Ferry', 'Final Froggit', 'Fire Trap', 'Fishing Rod', 'Flowey', 'Frisk', 'Froggit', 'Fuku Fire', 'Garbage', 'Gaster', 'Gaster Follower 1', 'Gaster Follower 2', 'Gaster Follower 3', 'Gerson', 'Gift Bear', 'Glad Dummy', 'Glyde', 'Golden Flowers', 'Goner Kid', 'Greater Dog', 'Grillby', 'Gyftrot', 'Heats Flamesman', 'Ice', 'Ice Cap', 'Ice Wolf', 'Igloo', 'Innkeeper', 'Janitor', 'Jerry', 'Knight Knight', 'Lamp', 'Lemon Bread', 'Lesser Dog', 'Librarian', 'Loox', 'Loren', 'MTT Fountain', 'Mace', 'Mad Dummy', 'Madjick', 'Manticore', 'Memorial Statue', 'Memory Head', 'Mettaton', 'Mettaton Ex', 'Mettaton NEO', 'Microwave', 'Migosp', 'Migospel', 'Moldbygg', 'Moldessa', 'Moldsmal', 'Monster Kid', 'Muffet', "Muffet's Pet", 'Nacarat Jester', 'Napstablook', 'Nice Cream Guy', 'Omega Flowey', 'Oni', 'Onion San', 'Orange Laser', 'Papyrus', 'Papyrus Statue', 'Parsnik', 'Politics Bear', 'Pyrope', 'Reaper Bird', 'Receptionist 1', 'Receptionist 2', 'Receptionist 3', 'Red Bird', 'Red Snail', 'Redacted', 'River Person', 'Rock', 'Royal Guard 1', 'Royal Guard 2', 'Sad Customer', 'Sad Dragon', 'Sans', 'Scarf Mouse', 'Shambling Mass', 'Shyren', 'Skateboard Girl', 'Small Bird', 'Snail Trainer', 'Snow Poff', 'Snowdrake', "Snowdrake's Mom", 'Snowman', 'So Sorry', 'Spider', 'Temmie', 'Temmie Statue', 'The Heroine', 'Timer', 'Tiny Froggit', 'Toriel', 'Trader Temmie', 'Trash Tornado', 'Tree', 'Tsunderplane', 'Ugly Fish', 'Undyne', 'Vegetoid', 'Vulkin', "Vulkin's Cloud", 'Water Cooler', 'Whimsalot', 'Whimsun', 'Woshua', 'Yellow Snail']
 gen = {"Bun": "Bunbun", "Dog Residue": "Annoying Dog", "Doodlebog": "So Sorry", "Gaster Blaster": "Gaster", "Gift": "Gift Bear", "Left Tentacle": "Onion San", "Load": "Omega Flowey", "Lost Soul 1": "Angel of Death", "Lost Soul 2": "Angel of Death", "Lost Soul 3": "Angel of Death", "Lost Soul 4": "Angel of Death", "Lost Soul 5": "Angel of Death", "Lost Soul 6": "Angel of Death", "Mettabot": "Dancer Mettaton", "Pebble": "Rock", "Right Tentacle": "Onion San", "Temmie 2": "Temmie", "Thundersnail": "Snail Trainer"}
+spells = ["Aaron's Secret", 'Acceleration', 'Another Chance', 'Assault', 'Brain Freeze', 'Brain Shift', 'Break', 'Cloning', 'Cold Winter', 'Contamination', 'Defrosting', 'Explosion', 'Expulsion', 'Feast', 'Final Charge', 'Force of Nature', 'Fortune', 'Fridge', 'Froggit Trio', 'Headshot', 'Heal', 'Heal Delivery', 'Hyper Goner', 'Inflation', 'Investment', 'Knife', 'Last Dream', 'Longevity', 'Multi Shot', 'Penetration', 'Pie', 'Poison', 'Pollutant Gas', 'Protection', 'Punishment', 'Resurrection', 'Same Fate', 'Sharing', 'Shootout', 'Shopping', 'Slowing', 'Snow Storm', 'Soothing', 'Spider Web', 'Strafe', 'Strength', 'Termination', 'Test of Will', "Undyne's Spears", 'Will to Fight', 'Worsening']
 
 classes = {"DT": ["`'Determination: Start the game with 1 extra life. When you would die, gain 15 HP instead.'`", 'Another Chance', 'Hyper Goner', 'Knife', 'Last Dream', 'Resurrection', 'Same Fate', 'Will to Fight'],
            "PATIENCE": ["`'Patience: At the start of your turn, deal 1 damage to all paralyzed enemy monsters. If there is none, paralyze a random enemy monster.'`", 'Brain Freeze', 'Cold Winter', 'Defrosting', 'Fridge', 'Protection', 'Sharing', 'Slowing', 'Snow Storm'],
@@ -187,7 +188,38 @@ async def artifact(ctx, *args):
             await ctx.send("`'" + art + " | Legendary | " + arts["Legendary"][art] + "'`")
         elif art in arts["Gerson"]:
             await ctx.send("`'" + art + " | Gerson | " + arts["Gerson"][art] + "'`") 
-    
+                      
+@nine.command(pass_context=True)
+async def generate(ctx, *args):
+    """Generates a random unrestricted deck of the soul you choose, including artifacts."""
+    soul = None
+    facts = []
+    deck = []
+    if len(args) > 1:
+        await ctx.send("`* I Can Only Handle One Soul At A Time.`")
+    elif not args:
+        soul = choice(["DT", "PATIENCE", "BRAVERY", "INTEGRITY", "PV", "KINDNESS", "JUSTICE"])
+    else:
+        soul = args[0].upper()
+    if soul:
+        pool = cards + classes[soul][1:]
+        while len(deck) < 25:
+            deck.append(choice(pool))
+        rarity = randint(1, 2)
+        if rarity == 1:
+            facts.append(choice(list(arts["Normal"].keys())))
+            facts.append(choice(list(arts["Normal"].keys())))
+        elif rarity == 2:
+            facts.append(choice(list(arts["Legendary"].keys())))
+    if deck:
+        deck.sort()
+        post = "Your " + classes[soul][0].split(":")[0][2:] + " Deck: "
+        for d in deck:
+            post += d + ", "
+        post = post[:-2]
+        post += "\nArtifacts: " + str(facts).replace("[", "").replace("]", "")
+        await ctx.send("`" + post + "`")
+
 def wild(card):
     global cards
     global gen
@@ -197,6 +229,9 @@ def wild(card):
     for page in cards:
         if card[:-4].title() in page:
             pages.append(page)
+    for arc in spells:
+        if card[:-4].title() in arc:
+            pages.append(arc)
     for tor in gen:
         if card[:-4].title() in tor:
             pages.append(tor)        
@@ -226,7 +261,8 @@ async def help(ctx):
     emb.add_field(name = "98!greet", value = "Says hello.", inline = False)
     emb.add_field(name = "98!check <card>", value = "Checks Undercards Wiki for the requested card.\n('...' for autocomplete, but only with full keywords)", inline = False)
     emb.add_field(name = "98!soul <soul>", value = "Returns information on the specified soul, and a random spell of that class.", inline = False)
-    emb.add_field(name = "98!artifact <artifact>", value = "Returns a description of the requested artifact.", inline = False)
+    emb.add_field(name = "98!artifact <artifact>", value = "Gives a description of the requested artifact.", inline = False)
+    emb.add_field(name = "98!generate <soul>", value = "Generates a random unrestricted deck of the soul you choose, including artifacts.", inline = False)
     emb.add_field(name = "98!help", value = "Shows commands.", inline = False)
     await ctx.send(embed=emb)
                         
