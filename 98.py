@@ -200,14 +200,13 @@ async def generate(ctx, *args):
     elif not args:
         soul = choice(["DT", "PATIENCE", "BRAVERY", "INTEGRITY", "PV", "KINDNESS", "JUSTICE"])
     else:
-        if Class == "DETERMINATION":
+        soul = args[0].upper()
+        if soul == "DETERMINATION":
             soul = "DT"
         if soul.startswith("PERS"):
             soul = "PV"
         if soul.startswith("INTEG"):
             soul = "Integrity"
-        else:
-            soul = args[0].upper()
     if soul:
         pool = cards + classes[soul][1:]
         while len(deck) < 25:
