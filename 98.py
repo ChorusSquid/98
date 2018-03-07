@@ -231,7 +231,8 @@ async def generate(ctx, *args):
             post += f + ", "
         if "Gerson" in deck:
             post += choice(list(arts["Gerson"].keys()))
-        post = post[:-2]
+        else:
+            post = post[:-2]
         await ctx.send("`" + post + "`")
 
 def wild(card):
