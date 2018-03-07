@@ -250,7 +250,9 @@ def wild(card):
     for tor in gen:
         if card[:-4].title() in tor:
             pages.append(tor)        
-    if len(pages) > 1: 
+    if len(pages) > 1:
+        for p in pages:
+            p = rep(p)
         return("`* Here Are The Cards I Found: " + str(pages).replace("[", "").replace("]", "") + "`")
     elif not pages:
         return("`* Card Not Found.`")
