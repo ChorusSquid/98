@@ -224,7 +224,7 @@ async def generate(ctx, *args):
         deck.sort()
         post = "Your " + classes[soul][0].split(":")[0][2:] + " Deck: "
         for d in deck:
-            post += d + ", "
+            post += rep(d) + ", "
         post = post[:-2]
         post += "\nArtifacts: "
         for f in facts:
