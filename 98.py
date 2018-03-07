@@ -6,7 +6,6 @@ from urllib.request import urlopen, urlretrieve
 ##import urllib
 ##import wikia
 from random import *
-import os
 
 cards = ['Aaron', 'Allergic Temmie', 'Alphys', 'Angel of Death', 'Annoying Dog', 'Asgore', 'Asriel', 'Asriel Dreemurr', 'Astigmatism', 'Big Bob', 'Big Bomb', 'Big Mouth', 'Blue Laser', 'Blue Snail', 'Bob', 'Bomb', 'Bratty', 'Bridge Seed', 'Bunbun', 'Burgerpants', 'Cactus', 'Candy Dish', 'Casual Undyne', 'Catty', 'Chara', 'Charles', 'Chilldrake', 'Clam Boy', 'Clam Girl', 'Coffee Man', 'Coffin', 'Crazy Bun', 'Dancer Mettaton', 'Diamond Boy 1', 'Diamond Boy 2', 'Dimensional Box', 'Disco Ball', 'Dog Food', 'Dog House', 'Dogamy', 'Dogaressa', 'Doggo', 'Dummy', 'Echo Fish', 'Echo Flower', 'Elder Puzzler', 'Endogeny', 'Everyman', 'Faun', 'Ferry', 'Final Froggit', 'Fire Trap', 'Fishing Rod', 'Flowey', 'Frisk', 'Froggit', 'Fuku Fire', 'Garbage', 'Gaster', 'Gaster Follower 1', 'Gaster Follower 2', 'Gaster Follower 3', 'Gerson', 'Gift Bear', 'Glad Dummy', 'Glyde', 'Golden Flowers', 'Goner Kid', 'Greater Dog', 'Grillby', 'Gyftrot', 'Heats Flamesman', 'Ice', 'Ice Cap', 'Ice Wolf', 'Igloo', 'Innkeeper', 'Janitor', 'Jerry', 'Knight Knight', 'Lamp', 'Lemon Bread', 'Lesser Dog', 'Librarian', 'Loox', 'Loren', 'MTT Fountain', 'Mace', 'Mad Dummy', 'Madjick', 'Manticore', 'Memorial Statue', 'Memory Head', 'Mettaton', 'Mettaton Ex', 'Mettaton NEO', 'Microwave', 'Migosp', 'Migospel', 'Moldbygg', 'Moldessa', 'Moldsmal', 'Monster Kid', 'Muffet', "Muffet's Pet", 'Nacarat Jester', 'Napstablook', 'Nice Cream Guy', 'Omega Flowey', 'Oni', 'Onion San', 'Orange Laser', 'Papyrus', 'Papyrus Statue', 'Parsnik', 'Politics Bear', 'Pyrope', 'Reaper Bird', 'Receptionist 1', 'Receptionist 2', 'Receptionist 3', 'Red Bird', 'Red Snail', 'Redacted', 'River Person', 'Rock', 'Royal Guard 1', 'Royal Guard 2', 'Sad Customer', 'Sad Dragon', 'Sans', 'Scarf Mouse', 'Shambling Mass', 'Shyren', 'Skateboard Girl', 'Small Bird', 'Snail Trainer', 'Snow Poff', 'Snowdrake', "Snowdrake's Mom", 'Snowman', 'So Sorry', 'Spider', 'Temmie', 'Temmie Statue', 'The Heroine', 'Timer', 'Tiny Froggit', 'Toriel', 'Trader Temmie', 'Trash Tornado', 'Tree', 'Tsunderplane', 'Ugly Fish', 'Undyne', 'Vegetoid', 'Vulkin', "Vulkin's Cloud", 'Water Cooler', 'Whimsalot', 'Whimsun', 'Woshua', 'Yellow Snail']
 gen = {"Bun": "Bunbun", "Dog Residue": "Annoying Dog", "Doodlebog": "So Sorry", "Gaster Blaster": "Gaster", "Gift": "Gift Bear", "Left Tentacle": "Onion San", "Load": "Omega Flowey", "Lost Soul 1": "Angel of Death", "Lost Soul 2": "Angel of Death", "Lost Soul 3": "Angel of Death", "Lost Soul 4": "Angel of Death", "Lost Soul 5": "Angel of Death", "Lost Soul 6": "Angel of Death", "Mettabot": "Dancer Mettaton", "Pebble": "Rock", "Right Tentacle": "Onion San", "Temmie 2": "Temmie", "Thundersnail": "Snail Trainer"}
@@ -69,7 +68,7 @@ def get_images(url, card, rat = None):
                 links.remove(pack)
     if rat:
         for pack in links:
-            if rat.replace(" ", "_").title()[:-1] not in pack:
+            if rep(rat)[:-1] not in pack:
                 links.remove(pack)
             elif rat.title().split()[0] not in pack:
                 links.remove(pack)
@@ -112,14 +111,14 @@ async def check(ctx, *args):
     if not card.endswith("... "):
         if not card:
             card = choice(cards)
-        if card.title().replace("To", "to").replace("Of", "of").replace("'S", "'s")[:-1] in gen:
+        if rep(card)[:-1] in gen:
             rat = card
-            card = gen[card.title().replace("To", "to").replace("Of", "of")[:-1]]
+            card = gen[rep(card)[:-1]]
             for bit in gen:
                 if rat.title()[:-1] in bit:
-                    url = "http://undercards.wikia.com/wiki/" + gen[bit].replace(" ", "_").title().replace("To", "to").replace("Of", "of").replace("'S", "'s").replace("Neo", "NEO")
+                    url = "http://undercards.wikia.com/wiki/" + rep(gen[bit])
         if not url:
-            url = "http://undercards.wikia.com/wiki/" + card.replace(" ", "_").title().replace("To", "to").replace("Of", "of").replace("'S", "'s").replace("Neo", "NEO")
+            url = "http://undercards.wikia.com/wiki/" + rep(card)
         await ctx.send(get_images(url, card, rat))
     else:
         await ctx.send(wild(card))
@@ -149,7 +148,7 @@ async def soul(ctx, *args):
         await ctx.invoke(check, spell)
     else:
         await ctx.send("`* Soul Not Found.`")
-        
+    
 @nine.command(pass_context=True)
 async def artifact(ctx, *args):
     """Gives a description of the requested artifact."""
@@ -162,7 +161,7 @@ async def artifact(ctx, *args):
         if randint(1, 2) == 1:
             art = choice(list(arts["Normal"].keys()))
         else:
-            art = choice(list(arts["Legendary"].keys()))       
+            art = choice(list(arts["Legendary"].keys()))
     if art.endswith("..."):
         for i in arts["Normal"]:
             if art[:-3] in i:
@@ -187,8 +186,8 @@ async def artifact(ctx, *args):
         elif art in arts["Legendary"]:
             await ctx.send("`'" + art + " | Legendary | " + arts["Legendary"][art] + "'`")
         elif art in arts["Gerson"]:
-            await ctx.send("`'" + art + " | Gerson | " + arts["Gerson"][art] + "'`") 
-                      
+            await ctx.send("`'" + art + " | Gerson | " + arts["Gerson"][art] + "'`")
+
 @nine.command(pass_context=True)
 async def generate(ctx, *args):
     """Generates a random unrestricted deck of the soul you choose, including artifacts."""
@@ -200,15 +199,24 @@ async def generate(ctx, *args):
     elif not args:
         soul = choice(["DT", "PATIENCE", "BRAVERY", "INTEGRITY", "PV", "KINDNESS", "JUSTICE"])
     else:
-        soul = args[0].upper()
+        if Class == "DETERMINATION":
+            soul = "DT"
+        if soul.startswith("PERS"):
+            soul = "PV"
+        if soul.startswith("INTEG"):
+            soul = "Integrity"
+        else:
+            soul = args[0].upper()
     if soul:
         pool = cards + classes[soul][1:]
         while len(deck) < 25:
             deck.append(choice(pool))
         rarity = randint(1, 2)
-        if rarity == 1:
+        if rarity == 1:           
             facts.append(choice(list(arts["Normal"].keys())))
             facts.append(choice(list(arts["Normal"].keys())))
+            if facts[0] == facts[1]:
+                facts.remove(facts[1])
         elif rarity == 2:
             facts.append(choice(list(arts["Legendary"].keys())))
     if deck:
@@ -217,7 +225,12 @@ async def generate(ctx, *args):
         for d in deck:
             post += d + ", "
         post = post[:-2]
-        post += "\nArtifacts: " + str(facts).replace("[", "").replace("]", "")
+        post += "\nArtifacts: "
+        for f in facts:
+            post += f + ", "
+        if "Gerson" in deck:
+            post += choice(list(arts["Gerson"].keys()))
+        post = post[:-2]
         await ctx.send("`" + post + "`")
 
 def wild(card):
@@ -247,10 +260,14 @@ def wild(card):
             card = pages[0]
         for bit in gen:
             if card.title()[:-1] in bit:
-                url = "http://undercards.wikia.com/wiki/" + gen[bit].replace(" ", "_").title().replace("To", "to").replace("Of", "of").replace("'S", "'s").replace("Neo", "NEO")
+                url = "http://undercards.wikia.com/wiki/" + rep(gen[bit])
         if not url:
-            url = "http://undercards.wikia.com/wiki/" + card.replace(" ", "_").title().replace("To", "to").replace("Of", "of").replace("'S", "'s").replace("Neo", "NEO")
+            url = "http://undercards.wikia.com/wiki/" + rep(card)
         return get_images(url, card, rat)
+    
+def rep(text):
+    text = text.replace(" ", "_").title().replace("To", "to").replace("Of", "of").replace("'S", "'s").replace("Ex", "EX").replace("Neo", "NEO")
+    return text
 
 nine.remove_command("help")
 
@@ -266,4 +283,4 @@ async def help(ctx):
     emb.add_field(name = "98!help", value = "Shows commands.", inline = False)
     await ctx.send(embed=emb)
                         
-nine.run(os.environ["BOT_TOKEN"])
+nine.run('NDE3MzE0Mzc3MDgzOTEyMTky.DXRN1w.7RaHodyGJ5sSaIn4zHKXt8O61v8')
