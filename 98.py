@@ -45,7 +45,7 @@ arts = {"Normal": {"Copycat": "Shuffle your starting hand into your deck. Add a 
                    "Sea Tea": "Start of turn: Restore 3 HP to a random damaged ally monster.",
                    "Torn Notebook": "Start of turn: Deal 1 damage to a random enemy monster."}}
 
-nine = commands.Bot(command_prefix = "98!", description = "* I Am 98, A Bot Dedicated to the Card Game Known As 'Undercards'.", case_insensitive = True)
+nine = commands.Bot(command_prefix = "98!", description = "`* I Am 98, A Bot Dedicated to the Card Game Known As 'Undercards'.`", case_insensitive = True)
 cli = discord.Client
 
 def get_images(url, card, rat = None):
