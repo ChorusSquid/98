@@ -120,7 +120,7 @@ async def check(ctx, *args):
             card = choice(cards)
         if rep(card)[:-1] in gen:
             rat = card
-            card = gen[rep(card)[:-1]]
+            card = gen[rep(card).replace("_", " ")[:-1]]
             for bit in gen:
                 if rat.title()[:-1] in bit:
                     url = "http://undercards.wikia.com/wiki/" + rep(gen[bit])
@@ -291,7 +291,7 @@ def wild(card):
             pages.append(tor)        
     if len(pages) > 1:
         for p in pages:
-            p = rep(p)        
+            p = rep(p).replace("_", " ")        
         return("`* Here Are The Cards I Found: " + str(pages).replace("[", "").replace("]", "") + "`")
     elif not pages:
         return("`* Card Not Found.`")
