@@ -307,6 +307,7 @@ async def help(ctx):
     emb.add_field(name = "98!check <card>", value = "Checks Undercards Wiki for the requested card.\n('...' for autocomplete, but only with full keywords)", inline = False)
     emb.add_field(name = "98!soul <soul>", value = "Returns information on the specified soul, and a random spell of that class.", inline = False)
     emb.add_field(name = "98!artifact <artifact>", value = "Gives a description of the requested artifact.", inline = False)
+    emb.add_field(name = "98!rarity <rarity>", value = "Returns a random card of the selected rarity.", inline = False)
     emb.add_field(name = "98!generate <soul>", value = "Generates a random unrestricted deck of the soul you choose, including artifacts.", inline = False)
     emb.add_field(name = "98!help", value = "Shows commands.", inline = False)
     await ctx.send(embed=emb)
