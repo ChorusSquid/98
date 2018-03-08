@@ -294,7 +294,7 @@ def wild(card):
         return get_images(url, card, rat)
     
 def rep(text):
-    text = text.replace(" ", "_").title().replace("To", "to").replace("Of", "of").replace("'S", "'s").replace("Ex", "EX").replace("Neo", "NEO")
+    text = text.replace(" ", "_").title().replace("To", "to").replace("Of", "of").replace("'S", "'s")replace("Mtt", "MTT").replace("Ex", "EX").replace("Neo", "NEO")
     return text
 
 nine.remove_command("help")
