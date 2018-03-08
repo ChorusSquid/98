@@ -206,7 +206,7 @@ async def generate(ctx, *args):
         if soul.startswith("PERS"):
             soul = "PV"
         if soul.startswith("INTEG"):
-            soul = "Integrity"
+            soul = "INTEGRITY"
     if soul:
         pool = cards + classes[soul][1:]
         while len(deck) < 25:
@@ -224,7 +224,7 @@ async def generate(ctx, *args):
         deck.sort()
         post = "Your " + classes[soul][0].split(":")[0][2:] + " Deck: "
         for d in deck:
-            post += rep(d) + ", "
+            post += rep(d).replace("_", " ") + ", "
         post = post[:-2]
         post += "\nArtifacts: "
         for f in facts:
