@@ -79,7 +79,7 @@ def get_images(url, card, rat = None):
                 links.remove(pack)
             elif rat.title().split()[0] not in pack:
                 links.remove(pack)
-    return links[0].replace("/scale-to-width-down/305", "")
+    return links[0].replace("/scale-to-width-down/305", "").replace("/scale-to-width-down/220", "")
 
 @nine.event
 async def on_ready():
