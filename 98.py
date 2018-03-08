@@ -12,6 +12,12 @@ cards = ['Aaron', 'Allergic Temmie', 'Alphys', 'Angel of Death', 'Annoying Dog',
 gen = {"Bun": "Bunbun", "Dog Residue": "Annoying Dog", "Doodlebog": "So Sorry", "Gaster Blaster": "Gaster", "Gift": "Gift Bear", "Left Tentacle": "Onion San", "Load": "Omega Flowey", "Lost Soul 1": "Angel of Death", "Lost Soul 2": "Angel of Death", "Lost Soul 3": "Angel of Death", "Lost Soul 4": "Angel of Death", "Lost Soul 5": "Angel of Death", "Lost Soul 6": "Angel of Death", "Mettabot": "Dancer Mettaton", "Pebble": "Rock", "Right Tentacle": "Onion San", "Temmie 2": "Temmie", "Thundersnail": "Snail Trainer"}
 spells = ["Aaron's Secret", 'Acceleration', 'Another Chance', 'Assault', 'Brain Freeze', 'Brain Shift', 'Break', 'Cloning', 'Cold Winter', 'Contamination', 'Defrosting', 'Explosion', 'Expulsion', 'Feast', 'Final Charge', 'Force of Nature', 'Fortune', 'Fridge', 'Froggit Trio', 'Headshot', 'Heal', 'Heal Delivery', 'Hyper Goner', 'Inflation', 'Investment', 'Knife', 'Last Dream', 'Longevity', 'Multi Shot', 'Penetration', 'Pie', 'Poison', 'Pollutant Gas', 'Protection', 'Punishment', 'Resurrection', 'Same Fate', 'Sharing', 'Shootout', 'Shopping', 'Slowing', 'Snow Storm', 'Soothing', 'Spider Web', 'Strafe', 'Strength', 'Termination', 'Test of Will', "Undyne's Spears", 'Will to Fight', 'Worsening']
 
+rarities = {"common": ['Aaron', 'Assault', 'Astigmatism', 'Blue Laser', 'Blue Snail', 'Bomb', 'Break', 'Bridge Seed', 'Bunbun', 'Cactus', 'Candy Dish', 'Charles', 'Crazy Bun', 'Dog Food', 'Dummy', 'Echo Flower', 'Endogeny', 'Everyman', 'Faun', 'Ferry', 'Final Froggit', 'Fishing Rod', 'Force of Nature', 'Fortune', 'Fridge', 'Froggit', 'Froggit Trio', 'Fuku Fire', 'Gaster Follower 1', 'Gaster Follower 2', 'Gaster Follower 3', 'Gift Bear', 'Golden Flowers', 'Heal', 'Heats Flamesman', 'Ice', 'Ice Cap', 'Igloo', 'Investment', 'Janitor', 'Jerry', 'Knife', 'Knight Knight', 'Lamp', 'Lemon Bread', 'Loox', 'Loren', 'Mace', 'Madjick', 'Memory Head', 'Microwave', 'Migosp', 'Migospel', 'Moldbygg', 'Moldessa', 'Moldsmal', 'MTT Fountain', 'Oni', 'Orange Laser', 'Parsnik', 'Pie', 'Poison', 'Politics Bear', 'Protection', 'Punishment', 'Pyrope', 'Reaper Bird', 'Receptionist 1', 'Red Snail', 'Resurrection', 'Rock', 'Royal Guard 1', 'Royal Guard 2', 'Sad Customer', 'Sad Dragon', 'Scarf Mouse', 'Shambling Mass', 'Sharing', 'Shootout', 'Shyren', 'Slowing', 'Small Bird', 'Snowdrake', "Snowdrake's Mom", 'Snowman', 'Spider', 'Spider Web', 'Strafe', 'Strength', 'Tiny Froggit', 'Tree', 'Tsunderplane', 'Ugly Fish', 'Vegetoid', 'Vulkin', 'Water Cooler', 'Whimsalot', 'Whimsun', 'Will to Fight', 'Worsening', 'Woshua', 'Yellow Snail'],
+            "rare": ["Aaron's Secret", 'Allergic Temmie', 'Annoying Dog', 'Another Chance', 'Big Bob', 'Big Mouth', 'Burgerpants', 'Chilldrake', 'Clam Boy', 'Clam Girl', 'Coffee Man', 'Coffin', 'Cold Winter', 'Defrosting', 'Diamond Boy 1', 'Diamond Boy 2', 'Dimensional Box', 'Disco Ball', 'Dog House', 'Dogamy', 'Dogaressa', 'Doggo', 'Echo Fish', 'Elder Puzzler', 'Explosion', 'Expulsion', 'Feast', 'Fire Trap', 'Garbage', 'Glad Dummy', 'Glyde', 'Greater Dog', 'Gyftrot', 'Ice Wolf', 'Lesser Dog', 'Librarian', 'Mad Dummy', 'Manticore', 'Memorial Statue', 'Monster Kid', "Muffet's Pet", 'Nacarat Jester', 'Nice Cream Guy', 'Papyrus Statue', 'Penetration', 'Pollutant Gas', 'Receptionist 2', 'Red Bird', 'Redacted', 'Same Fate', 'Shopping', 'Skateboard Girl', 'Snow Poff', 'So Sorry', 'Soothing', 'Temmie', 'Temmie Statue', 'Termination', 'Timer', 'Trash Tornado', "Undyne's Spears", "Vulkin's Cloud"],
+            "epic": ['Acceleration', 'Alphys', 'Asriel', 'Big Bomb', 'Bob', 'Brain Freeze', 'Brain Shift', 'Bratty', 'Catty', 'Cloning', 'Contamination', 'Dancer Mettaton', 'Final Charge', 'Flowey', 'Gaster', 'Goner Kid', 'Grillby', 'Headshot', 'Heal Delivery', 'Hyper Goner', 'Inflation', 'Innkeeper', 'Last Dream', 'Longevity', 'Mettaton', 'Multi Shot', 'Napstablook',  'Onion San', 'Receptionist 3', 'River Person', 'Snail Trainer', 'Snow Storm', 'Test of Will', 'Trader Temmie'],
+            "legendary": ['Asgore', 'Asriel Dreemurr', 'Casual Undyne', 'Gerson', 'Mettaton Ex', 'Mettaton NEO', 'Muffet', 'Papyrus', 'Sans', 'Toriel', 'Undyne'],
+            "determination": ['Angel of Death', 'Chara', 'Frisk', 'Omega Flowey', 'The Heroine']}
+
 classes = {"DT": ["`'Determination: Start the game with 1 extra life. When you would die, gain 15 HP instead.'`", 'Another Chance', 'Hyper Goner', 'Knife', 'Last Dream', 'Resurrection', 'Same Fate', 'Will to Fight'],
            "PATIENCE": ["`'Patience: At the start of your turn, deal 1 damage to all paralyzed enemy monsters. If there is none, paralyze a random enemy monster.'`", 'Brain Freeze', 'Cold Winter', 'Defrosting', 'Fridge', 'Protection', 'Sharing', 'Slowing', 'Snow Storm'],
            "BRAVERY": ["`'Bravery: At the start of your turn, draw cards until you got 4 cards into your hand.'`", "Aaron's Secret", 'Acceleration', 'Assault', 'Final Charge', 'Froggit Trio', 'Penetration', 'Strength'],
@@ -206,7 +212,7 @@ async def generate(ctx, *args):
         if soul.startswith("PERS"):
             soul = "PV"
         if soul.startswith("INTEG"):
-            soul = "INTEGRITY"
+            soul = "Integrity"
     if soul:
         pool = cards + classes[soul][1:]
         while len(deck) < 25:
@@ -234,6 +240,24 @@ async def generate(ctx, *args):
         else:
             post = post[:-2]
         await ctx.send("`" + post + "`")
+    if not (soul and deck):
+        await ctx.send("`* Soul Not Found.`")
+
+@nine.command(pass_context=True)
+async def rarity(ctx, *args):
+    """Returns a random card of the selected rarity."""
+    rar = ""
+    if len(args) > 1:
+        await ctx.send("`* I Can Only Handle One Rarity At A Time.`")
+    elif not args:
+        rar = choice(["common", "rare", "epic", "legendary", "determination"])
+    else:
+        rar = args[0].lower()
+    if rar == "DT":
+        rar = "determination"
+    car = choice(rarities[rar])
+    await ctx.send("`* There Are " + str(len(rarities[rar])) + " " + rar.title() + " Cards.\nHere is a random one:`")
+    await ctx.invoke(check, car)
 
 def wild(card):
     global cards
@@ -252,7 +276,7 @@ def wild(card):
             pages.append(tor)        
     if len(pages) > 1:
         for p in pages:
-            p = rep(p)
+            p = rep(p)        
         return("`* Here Are The Cards I Found: " + str(pages).replace("[", "").replace("]", "") + "`")
     elif not pages:
         return("`* Card Not Found.`")
