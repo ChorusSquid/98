@@ -201,6 +201,7 @@ async def generate(ctx, *args):
     soul = None
     facts = []
     deck = []
+    limits = {"common": 3, "rare": 3, "epic": 2, "legendary": 1}
     if len(args) > 1:
         await ctx.send("`* I Can Only Handle One Soul At A Time.`")
     elif not args:
@@ -214,9 +215,23 @@ async def generate(ctx, *args):
         if soul.startswith("INTEG"):
             soul = "Integrity"
     if soul:
+        Det = False
         pool = cards + classes[soul][1:]
         while len(deck) < 25:
-            deck.append(choice(pool))
+            mon = choice(pool)
+            if mon in rarities["common"] or mon in rarities["rare"]:
+                if deck.count(mon) < 3:
+                    deck.append(mon)
+            elif mon in rarities["epic"]:
+                if deck.count(mon) < 2:
+                    deck.append(mon)
+            elif mon in rarities["legendary"]:
+                if deck.count(mon) < 1:
+                    deck.append(mon)
+            elif mon in rarities["determination"]:
+                if not Det:
+                    deck.append(mon)
+                    Det = True
         rarity = randint(1, 2)
         if rarity == 1:           
             facts.append(choice(list(arts["Normal"].keys())))
@@ -294,7 +309,7 @@ def wild(card):
         return get_images(url, card, rat)
     
 def rep(text):
-    text = text.replace(" ", "_").title().replace("To", "to").replace("Of", "of").replace("'S", "'s").replace("Mtt", "MTT").replace("Ex", "EX").replace("Neo", "NEO")
+    text = text.replace(" ", "_").title().replace("To ", "to ").replace("Of", "of").replace("'S", "'s").replace("Mtt", "MTT").replace("Ex", "EX").replace("Neo", "NEO")
     return text
 
 nine.remove_command("help")
