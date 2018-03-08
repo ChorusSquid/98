@@ -118,7 +118,7 @@ async def check(ctx, *args):
     if not card.endswith("... "):
         if not card:
             card = choice(cards)
-        if rep(card)[:-1] in gen:
+        if rep(card).replace("_", " ")[:-1] in gen:
             rat = card
             card = gen[rep(card).replace("_", " ")[:-1]]
             for bit in gen:
