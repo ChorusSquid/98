@@ -253,7 +253,7 @@ async def rarity(ctx, *args):
         rar = choice(["common", "rare", "epic", "legendary", "determination"])
     else:
         rar = args[0].lower()
-    if rar == "DT":
+    if rar == "dt":
         rar = "determination"
     car = choice(rarities[rar])
     await ctx.send("`* There Are " + str(len(rarities[rar])) + " " + rar.title() + " Cards.\nHere is a random one:`")
