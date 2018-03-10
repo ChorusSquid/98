@@ -236,7 +236,9 @@ async def generate(ctx, *args):
         pool = cards + classes[soul][1:]
         while len(deck) < 25:
             mon = choice(pool)
-            if mon in rarities["common"] or mon in rarities["rare"]:
+            if mon == "Heal Delivery" or mon == "Sharing":
+                pass
+            elif mon in rarities["common"] or mon in rarities["rare"]:
                 if deck.count(mon) < 3:
                     deck.append(mon)
             elif mon in rarities["epic"]:
@@ -249,8 +251,6 @@ async def generate(ctx, *args):
                 if not Det:
                     deck.append(mon)
                     Det = True
-            elif mon == "Heal Delivery" or mon == "Sharing":
-                pass
         rarity = randint(1, 2)
         if rarity == 1:           
             facts.append(choice(list(arts["Normal"].keys())))
