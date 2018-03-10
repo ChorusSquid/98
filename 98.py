@@ -201,30 +201,34 @@ async def generate(ctx, *args):
     soul = None
     facts = []
     deck = []
+    ment = []
+    ranks = ""
     limits = {"common": 3, "rare": 3, "epic": 2, "legendary": 1}
     Det = False
     for a in args:
-        a = a.upper()
+        ment.append(a.upper())
     if len(args) > 1:
-        if "RANKED" in args:
+        if "RANKED" in ment:
             Det = True
+            ranks = "Ranked "
         else:
             await ctx.send("`* I Can Only Handle One Soul At A Time.`")
     elif not args:
         soul = choice(["DT", "PATIENCE", "BRAVERY", "INTEGRITY", "PV", "KINDNESS", "JUSTICE"])
-    else:
+    if not soul:
         soul = args[0].upper()
-        if soul == "DETERMINATION":
-            soul = "DT"
-        if soul.startswith("PERS"):
-            soul = "PV"
-        if soul.startswith("INTEG"):
-            soul = "INTEGRITY"
-        if soul not in classes:
-            if soul == "RANKED":
-                soul = choice(["DT", "PATIENCE", "BRAVERY", "INTEGRITY", "PV", "KINDNESS", "JUSTICE"])
-            else:
-                soul = None
+    if soul == "DETERMINATION":
+        soul = "DT"
+    if soul.startswith("PERS"):
+        soul = "PV"
+    if soul.startswith("INT"):
+        soul = "INTEGRITY"
+    if soul not in classes:
+        if soul == "RANKED":
+            soul = choice(["DT", "PATIENCE", "BRAVERY", "INTEGRITY", "PV", "KINDNESS", "JUSTICE"])
+        else:
+            soul = None
+            await ctx.send("`* Soul Not Found.`")
     if soul:
         pool = cards + classes[soul][1:]
         while len(deck) < 25:
@@ -253,7 +257,7 @@ async def generate(ctx, *args):
             facts.append(choice(list(arts["Legendary"].keys())))
     if deck:
         deck.sort()
-        post = "Your " + classes[soul][0].split(":")[0][2:] + " Deck: "
+        post = "Your " + ranks + classes[soul][0].split(":")[0][2:] + " Deck: "
         for d in deck:
             post += rep(d).replace("_", " ") + ", "
         post = post[:-2]
@@ -265,8 +269,6 @@ async def generate(ctx, *args):
         else:
             post = post[:-2]
         await ctx.send("`" + post + "`")
-    if not (soul and deck):
-        await ctx.send("`* Soul Not Found.`")
 
 @nine.command(pass_context=True)
 async def rarity(ctx, *args):
