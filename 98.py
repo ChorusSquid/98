@@ -207,13 +207,17 @@ async def generate(ctx, *args):
     Det = False
     for a in args:
         ment.append(a.upper())
-    if len(args) > 1:
+    if len(ment) > 1:
         if "RANKED" in ment:
             pass
         else:
             await ctx.send("`* I Can Only Handle One Soul At A Time.`")
     elif not args:
         soul = choice(["DT", "PATIENCE", "BRAVERY", "INTEGRITY", "PV", "KINDNESS", "JUSTICE"])
+    if "RANKED" in ment:
+        Det = True
+        ranks = "Ranked "
+        ment.remove("RANKED")
     if not soul:
         soul = args[0].upper()
     if soul == "DETERMINATION":
@@ -228,9 +232,6 @@ async def generate(ctx, *args):
         else:
             soul = None
             await ctx.send("`* Soul Not Found.`")
-    if "RANKED" in ment:
-            Det = True
-            ranks = "Ranked "
     if soul:
         pool = cards + classes[soul][1:]
         while len(deck) < 25:
@@ -248,13 +249,16 @@ async def generate(ctx, *args):
                 if not Det:
                     deck.append(mon)
                     Det = True
+            elif mon == "Heal Delivery" or mon == "Sharing":
+                pass
         rarity = randint(1, 2)
         if rarity == 1:           
             facts.append(choice(list(arts["Normal"].keys())))
             facts.append(choice(list(arts["Normal"].keys())))
             facts.sort()
-            if facts[0] == facts[1]:
+            while facts[0] == facts[1]:
                 facts.remove(facts[1])
+                facts.append(choice(list(arts["Normal"].keys())))
         elif rarity == 2:
             facts.append(choice(list(arts["Legendary"].keys())))
     if deck:
@@ -271,6 +275,7 @@ async def generate(ctx, *args):
         else:
             post = post[:-2]
         await ctx.send("`" + post + "`")
+
 
 @nine.command(pass_context=True)
 async def rarity(ctx, *args):
