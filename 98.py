@@ -219,7 +219,7 @@ async def generate(ctx, *args):
         ranks = "Ranked "
         ment.remove("RANKED")
     if not soul:
-        soul = args[0].upper()
+        soul = ment[0].upper()
     if soul == "DETERMINATION":
         soul = "DT"
     if soul.startswith("PERS"):
