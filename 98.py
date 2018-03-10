@@ -255,10 +255,10 @@ async def generate(ctx, *args):
         if rarity == 1:           
             facts.append(choice(list(arts["Normal"].keys())))
             facts.append(choice(list(arts["Normal"].keys())))
-            facts.sort()
             while facts[0] == facts[1]:
                 facts.remove(facts[1])
                 facts.append(choice(list(arts["Normal"].keys())))
+            facts.sort()
         elif rarity == 2:
             facts.append(choice(list(arts["Legendary"].keys())))
     if deck:
