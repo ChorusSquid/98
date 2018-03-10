@@ -202,8 +202,14 @@ async def generate(ctx, *args):
     facts = []
     deck = []
     limits = {"common": 3, "rare": 3, "epic": 2, "legendary": 1}
+    Det = False
+    for a in args:
+        a = a.upper()
     if len(args) > 1:
-        await ctx.send("`* I Can Only Handle One Soul At A Time.`")
+        if "RANKED" in args:
+            Det = True
+        else:
+            await ctx.send("`* I Can Only Handle One Soul At A Time.`")
     elif not args:
         soul = choice(["DT", "PATIENCE", "BRAVERY", "INTEGRITY", "PV", "KINDNESS", "JUSTICE"])
     else:
@@ -213,9 +219,13 @@ async def generate(ctx, *args):
         if soul.startswith("PERS"):
             soul = "PV"
         if soul.startswith("INTEG"):
-            soul = "Integrity"
+            soul = "INTEGRITY"
+        if soul not in classes:
+            if soul == "RANKED":
+                soul = choice(["DT", "PATIENCE", "BRAVERY", "INTEGRITY", "PV", "KINDNESS", "JUSTICE"])
+            else:
+                soul = None
     if soul:
-        Det = False
         pool = cards + classes[soul][1:]
         while len(deck) < 25:
             mon = choice(pool)
@@ -309,7 +319,7 @@ def wild(card):
         return get_images(url, card, rat)
     
 def rep(text):
-    text = text.replace(" ", "_").title().replace("To ", "to ").replace("Of", "of").replace("'S", "'s").replace("Mtt", "MTT").replace("Ex", "EX").replace("Neo", "NEO")
+    text = text.replace(" ", "_").title().replace("To ", "to ").replace("Of", "of").replace("'S", "'s").replace("Mtt", "MTT").replace("Neo", "NEO")
     return text
 
 nine.remove_command("help")
@@ -323,7 +333,7 @@ async def help(ctx):
     emb.add_field(name = "98!soul <soul>", value = "Returns information on the specified soul, and a random spell of that class.", inline = False)
     emb.add_field(name = "98!artifact <artifact>", value = "Gives a description of the requested artifact.", inline = False)
     emb.add_field(name = "98!rarity <rarity>", value = "Returns a random card of the selected rarity.", inline = False)
-    emb.add_field(name = "98!generate <soul>", value = "Generates a random unrestricted deck of the soul you choose, including artifacts.", inline = False)
+    emb.add_field(name = "98!generate <soul>", value = "Generates a random deck of the soul you choose, including artifacts. Call `98!generate <soul> ranked` for no DTs.", inline = False)
     emb.add_field(name = "98!help", value = "Shows commands.", inline = False)
     await ctx.send(embed=emb)
                         
