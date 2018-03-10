@@ -209,8 +209,7 @@ async def generate(ctx, *args):
         ment.append(a.upper())
     if len(args) > 1:
         if "RANKED" in ment:
-            Det = True
-            ranks = "Ranked "
+            pass
         else:
             await ctx.send("`* I Can Only Handle One Soul At A Time.`")
     elif not args:
@@ -229,6 +228,9 @@ async def generate(ctx, *args):
         else:
             soul = None
             await ctx.send("`* Soul Not Found.`")
+    if "RANKED" in ment:
+            Det = True
+            ranks = "Ranked "
     if soul:
         pool = cards + classes[soul][1:]
         while len(deck) < 25:
