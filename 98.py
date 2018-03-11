@@ -294,8 +294,8 @@ async def generate(ctx, *args):
         post += "\nArtifacts: "
         for f in facts:
             post += f + ", "
-        if "Gerson" in deck:
-            post += choice(list(arts["Gerson"].keys()))
+##        if "Gerson" in deck:
+##            post += choice(list(arts["Gerson"].keys()))
         else:
             post = post[:-2]
         await ctx.send("`" + post + "`")
