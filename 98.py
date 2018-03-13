@@ -170,7 +170,7 @@ async def soul(ctx, *args):
     if Class.startswith("PERS"):
         Class = "PV"
     if Class.startswith("INTEG"):
-        Class = "Integrity"
+        Class = "INTEGRITY"
     if Class in classes:
         text = classes[Class][0]
         spell = choice(classes[Class][1:])
@@ -313,7 +313,7 @@ async def rarity(ctx, *args):
     if rar == "dt":
         rar = "determination"
     car = choice(rarities[rar])
-    await ctx.send("`* There Are " + str(len(rarities[rar])) + " " + rar.title() + " Cards.\nHere is a random one:`")
+    await ctx.send("`* There Are " + str(len(rarities[rar])) + " " + rar.title() + " Cards.\nHere Is A Random One:`")
     await ctx.invoke(check, car)
 
 def wild(card):
