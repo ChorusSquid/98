@@ -120,7 +120,8 @@ async def post(ctx, *args):
     post = ""
     for l in args:
         post += str(l) + " "
-    if discord.ext.commands.is_owner():
+##    if discord.ext.commands.is_owner():
+    if str(message.author.id) == '423900041263185920':
         await ctx.send("`" + post[:-1] + "`")
 
 ##@nine.command(pass_context=True)
