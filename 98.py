@@ -116,6 +116,7 @@ async def greet(ctx):
     await ctx.send("`* Greetings, " + str(ctx.message.author.display_name).title() + ". " + choice(greetings) + "`")
 
 @commands.is_owner()
+@nine.command(pass_context=True)
 async def post(ctx, *args):
     post = ""
     for l in args:
