@@ -115,14 +115,14 @@ async def greet(ctx):
     greetings = ["How Are You Today?", "I Am 98.", "What Is Up?"]
     await ctx.send("`* Greetings, " + str(ctx.message.author.display_name).title() + ". " + choice(greetings) + "`")
 
-@nine.command(pass_context=True)
+@commands.is_owner()
 async def post(ctx, *args):
     post = ""
     for l in args:
         post += str(l) + " "
 ##    if discord.ext.commands.is_owner():
-    if str(message.author.id) == '423900041263185920':
-        await ctx.send("`" + post[:-1] + "`")
+##    if str(message.author.id) == '423900041263185920':
+    await ctx.send("`" + post[:-1] + "`")
 
 ##@nine.command(pass_context=True)
 ##async def erase(ctx, number = 1):
