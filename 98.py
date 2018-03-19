@@ -99,7 +99,7 @@ def get_images(url, card, rat = None):
                 links.remove(pack)
     if rat:
         for pack in links:
-            if rep(rat)[:-1] not in pack:
+            if rep(rat) not in pack:
                 links.remove(pack)
             elif rat.title().split()[0] not in pack:
                 links.remove(pack)
