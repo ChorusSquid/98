@@ -102,6 +102,31 @@ arts = {"Normal": {"Copycat": "Shuffle your starting hand into your deck. Add a 
                    "Sea Tea": "Start of turn: Restore 3 HP to a random damaged ally monster.",
                    "Torn Notebook": "Start of turn: Deal 1 damage to a random enemy monster."}}
 
+effects = {"Magic": "The monster will trigger its effect when played on the board.",
+           "Dust": "The monster will trigger its effect when dying.",
+           "Start of turn": "The monster will trigger its effect at the start of your turn.",
+           "End of turn": "The monster will trigger its effect at the end of your turn.",
+           "Future": 'The monster will trigger its effect in (x) turns (can\'t be cancelled by the effect "Silence").',
+           "Dodge": "The monster will negate any instance of damage (x) times per turn.",
+           "Armor": "The monster will negate (x) damage.",
+           "Taunt": "You are forced to attack this monster.",
+           "Charge": "The monster can attack during its first turn.",
+           "Haste": "The monster can attack during its first turn but cannot target the opponent.",
+           "KR": "This monster will take 1 damage at the start of your turn.",
+           "Can't attack": "This monster can't attack.",
+           "Locked": "This monster can't be directly targeted by effects.",
+           "Transparency": "You can't target this monster. This effect is removed after an attack.",
+           "Candy": "The monster will be healed by 3 at the end of your turn.",
+           "Paralyze": "Make a monster unable to attack until the next turn.",
+           "Paralyzed": "This monster can't attack until the next turn.",
+           "Silence": "Remove all buffs and debuffs of a monster and make it unable to use its abilities.",
+           "Silenced": "This monster can no longer use its abilities.",
+           "Fatigue": "Damage dealt to players everytime they draw a card when their deck is empty. The damage is increased by 1 after each activation.",
+           "Turbo": "The card will trigger its effect when drawn.",
+           "Another Chance": "Dust: Summon this monster for your opponent.",
+           "Invulnerable": "This monster is immune to all damage.",
+           "Determination": "This monster can't be silenced."}
+
 nine = commands.Bot(command_prefix = "98!", description = "`* I Am 98, A Bot Dedicated to the Card Game Known As 'Undercards'.`", case_insensitive = True)
 cli = discord.Client
 
@@ -204,8 +229,9 @@ async def soul(ctx, *args):
         text = classes[Class][0]
         spell = choice(classes[Class][1:])
     if text and spell:
-        await ctx.send(text + "\n`Here Is A Random " + text.split(":")[0][2:] + " Spell:`")
-        await ctx.invoke(check, spell)
+##        await ctx.send(text + "\n`Here Is A Random " + text.split(":")[0][2:] + " Spell:`")
+##        await ctx.invoke(check, spell)
+        await ctx.send(text + "\n`Here Are The Spells Of This Class: " + str(classes[Class][1:]).replace("[", "").replace("]", "") + "`")
     else:
         await ctx.send("`* Soul Not Found.`")
     
@@ -344,6 +370,28 @@ async def rarity(ctx, *args):
     car = choice(rarities[rar])
     await ctx.send("`* There Are " + str(len(rarities[rar])) + " " + rar.title() + " Cards.\nHere Is A Random One:`")
     await ctx.invoke(check, car)
+          
+@nine.command(name = "effect", aliases = ["keyword"], pass_context=True)
+async def effect(ctx, *args):
+    """Gives a description of an effect or keyword."""
+    global effects
+    eff = ""
+    if not args:
+        eff = choice(list(effects.keys())) + " "
+    else:
+        for i in args:
+            eff += i + " "
+    eff = eff[:-1].capitalize()
+    if eff == "Kr":
+        eff = "KR"
+    elif eff == "Another chance":
+        eff = "Another Chance"
+    elif eff == "Not targetable":
+        eff = "Locked"
+    if eff in effects:
+        await ctx.send('`"' + eff + ": " + effects[eff] + '"`')
+    else:
+        await ctx.send("`Effect Not Found.`")
 
 def wild(card):
     global monsters
@@ -394,6 +442,7 @@ async def help(ctx):
     emb.add_field(name = "98!soul <soul>", value = "Returns information on the specified soul, and a random spell of that class.", inline = False)
     emb.add_field(name = "98!artifact <artifact>", value = "Gives a description of the requested artifact.", inline = False)
     emb.add_field(name = "98!rarity <rarity>", value = "Returns a random card of the selected rarity.", inline = False)
+    emb.add_field(name = "98!effect <effect>", value = "Gives a description of the requested effect of keyword. (alias: 98!keyword)", inline = False)
     emb.add_field(name = "98!generate <soul>", value = "Generates a random deck of the soul you choose, including artifacts. Call `98!generate <soul> ranked` for no DTs.", inline = False)
     emb.add_field(name = "98!help", value = "Shows commands.", inline = False)
     await ctx.send(embed=emb)
