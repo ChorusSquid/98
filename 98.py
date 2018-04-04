@@ -41,7 +41,6 @@ spells = ['Break', 'Force of Nature', 'Fridge', 'Protection',
 monsters = [m for m in prices if m not in spells]
 gen = {"Bun": "Bunbun", "Dog Residue": "Annoying Dog", "Doodlebog": "So Sorry", "Gaster Blaster": "Gaster", "Gift": "Gift Bear", "Kid Slime": "Dad Slime", "Left Tentacle": "Onion San", "Load": "Omega Flowey", "Lost Soul 1": "Angel of Death", "Lost Soul 2": "Angel of Death", "Lost Soul 3": "Angel of Death", "Lost Soul 4": "Angel of Death", "Lost Soul 5": "Angel of Death", "Lost Soul 6": "Angel of Death", "Mettabot": "Dancer Mettaton", "Pebble": "Rock", "Right Tentacle": "Onion San", "Temmie 2": "Temmie", "Thundersnail": "Snail Trainer"}
 
-
 costs = {'Break': 0, 'Force of Nature': 0, 'Fridge': 0, 'Protection': 0, 'Tiny Froggit': 0,
          'Acceleration': 1, 'Assault': 1, 'Blue Snail': 1, 'Dummy': 1, 'Heal': 1, 'Inflation': 1, 'Investment': 1, 'Penetration': 1, 'Poison': 1, 'Red Snail': 1,  'Spider': 1, 'Snowman': 1, 'Will to Fight': 1, 'Yellow Snail': 1,
          'Froggit': 2, 'Moldsmal': 2, 'Migosp': 2, 'Loox': 2, 'Annoying Dog': 2, 'Bridge Seed': 2, 'Charles': 2, 'Defrosting': 2, 'Froggit': 2, 'G Follower 1': 2, 'Lamp': 2, 'Loox': 2, 'Migosp': 2, 'Moldsmal': 2, 'Monster Kid': 2, 'Pie': 2, 'Strength': 2, 'Temmie': 2,
@@ -61,7 +60,6 @@ costs = {'Break': 0, 'Force of Nature': 0, 'Fridge': 0, 'Protection': 0, 'Tiny F
          'Angel of Death': 22,
          'Hyper Goner': 35,
          'Chara': 40}
-
 
 rarities = {"common": ['Aaron', 'Assault', 'Astigmatism', 'Blue Laser', 'Blue Snail', 'Bomb', 'Break', 'Bridge Seed', 'Bunbun', 'Cactus', 'Candy Dish', 'Charles', 'Crazy Bun', 'Dog Food', 'Dummy', 'Echo Flower', 'Endogeny', 'Everyman', 'Faun', 'Ferry', 'Final Froggit', 'Fishing Rod', 'Force of Nature', 'Fortune', 'Fridge', 'Froggit', 'Froggit Trio', 'Fuku Fire', 'Gaster Follower 1', 'Gaster Follower 2', 'Gaster Follower 3', 'Gift Bear', 'Golden Flowers', 'Heal', 'Heats Flamesman', 'Ice', 'Ice Cap', 'Igloo', 'Investment', 'Janitor', 'Jerry', 'Knife', 'Knight Knight', 'Lamp', 'Lemon Bread', 'Loox', 'Loren', 'Mace', 'Madjick', 'Memory Head', 'Microwave', 'Migosp', 'Migospel', 'Moldbygg', 'Moldessa', 'Moldsmal', 'MTT Fountain', 'Oni', 'Orange Laser', 'Parsnik', 'Pie', 'Poison', 'Politics Bear', 'Protection', 'Punishment', 'Pyrope', 'Reaper Bird', 'Receptionist 1', 'Red Snail', 'Resurrection', 'Rock', 'Royal Guard 1', 'Royal Guard 2', 'Sad Customer', 'Sad Dragon', 'Scarf Mouse', 'Shambling Mass', 'Sharing', 'Shootout', 'Shyren', 'Slowing', 'Small Bird', 'Snowdrake', "Snowdrake's Mom", 'Snowman', 'Spider', 'Spider Web', 'Strafe', 'Strength', 'Tiny Froggit', 'Tree', 'Tsunderplane', 'Ugly Fish', 'Vegetoid', 'Vulkin', 'Water Cooler', 'Whimsalot', 'Whimsun', 'Will to Fight', 'Worsening', 'Woshua', 'Yellow Snail'],
             "rare": ["Aaron's Secret", 'Allergic Temmie', 'Annoying Dog', 'Another Chance', 'Big Bob', 'Big Mouth', 'Burgerpants', 'Chilldrake', 'Clam Boy', 'Clam Girl', 'Coffee Man', 'Coffin', 'Cold Winter', 'Defrosting', 'Diamond Boy 1', 'Diamond Boy 2', 'Dimensional Box', 'Disco Ball', 'Dog House', 'Dogamy', 'Dogaressa', 'Doggo', 'Echo Fish', 'Elder Puzzler', 'Explosion', 'Expulsion', 'Feast', 'Fire Trap', 'Garbage', 'Glad Dummy', 'Glyde', 'Greater Dog', 'Gyftrot', 'Ice Wolf', 'Lesser Dog', 'Librarian', 'Mad Dummy', 'Manticore', 'Memorial Statue', 'Monster Kid', "Muffet's Pet", 'Nacarat Jester', 'Nice Cream Guy', 'Papyrus Statue', 'Penetration', 'Pollutant Gas', 'Receptionist 2', 'Red Bird', 'Redacted', 'Same Fate', 'Shopping', 'Skateboard Girl', 'Snow Poff', 'So Sorry', 'Soothing', 'Temmie', 'Temmie Statue', 'Termination', 'Timer', 'Trash Tornado', "Undyne's Spears", "Vulkin's Cloud"],
@@ -173,17 +171,12 @@ async def post(ctx, *args):
     post = ""
     for l in args:
         post += str(l) + " "
-##    if discord.ext.commands.is_owner():
-##    if str(message.author.id) == '423900041263185920':
-    await ctx.send("`" + post[:-1] + "`")
+    post = post[:-1]
+    if post.startswith(":") and post.endswith(":"):
+        await ctx.send(post)
+    else:
+        await ctx.send("`" + post + "`")
 
-##@nine.command(pass_context=True)
-##async def erase(ctx, number = 1):
-##    if discord.ext.commands.is_owner():
-##        number = int(number)
-##        async for message in cli.logs_from(channel, limit = number):
-##            if str(message.author.id) == '417314377083912192':
-##                await cli.delete_message(message)
     
 @nine.command(pass_context=True)
 async def check(ctx, *args):
@@ -208,7 +201,7 @@ async def check(ctx, *args):
     else:
         await ctx.send(wild(card))
 
-@nine.command(pass_context=True)
+@nine.command(name = "soul", aliases = ["class"], pass_context=True)
 async def soul(ctx, *args):
     """Displays data on the specified class."""
     text = None
@@ -235,7 +228,7 @@ async def soul(ctx, *args):
     else:
         await ctx.send("`* Soul Not Found.`")
     
-@nine.command(pass_context=True)
+@nine.command(name = "artifact", aliases = ["art"], pass_context=True)
 async def artifact(ctx, *args):
     """Gives a description of the requested artifact."""
     art = ""
@@ -274,7 +267,7 @@ async def artifact(ctx, *args):
         elif art in arts["Gerson"]:
             await ctx.send("`'" + art + " | Gerson | " + arts["Gerson"][art] + "'`")
 
-@nine.command(pass_context=True)
+@nine.command(name = "generate", aliases = ["gen"], pass_context=True)
 async def generate(ctx, *args):
     """Generates a random unrestricted deck of the soul you choose, including artifacts."""
     soul = None
@@ -370,7 +363,7 @@ async def rarity(ctx, *args):
     car = choice(rarities[rar])
     await ctx.send("`* There Are " + str(len(rarities[rar])) + " " + rar.title() + " Cards.\nHere Is A Random One:`")
     await ctx.invoke(check, car)
-          
+
 @nine.command(name = "effect", aliases = ["keyword"], pass_context=True)
 async def effect(ctx, *args):
     """Gives a description of an effect or keyword."""
@@ -439,11 +432,11 @@ async def help(ctx):
     emb = discord.Embed(title = "98", description = nine.description, inline = False)
     emb.add_field(name = "98!greet", value = "Says hello.", inline = False)
     emb.add_field(name = "98!check <card>", value = "Checks Undercards Wiki for the requested card.\n('...' for autocomplete, but only with full keywords)", inline = False)
-    emb.add_field(name = "98!soul <soul>", value = "Returns information on the specified soul, and a random spell of that class.", inline = False)
-    emb.add_field(name = "98!artifact <artifact>", value = "Gives a description of the requested artifact.", inline = False)
+    emb.add_field(name = "98!soul <soul>", value = "Returns information on the specified soul, and the spells of that class. (alias: 98!class)", inline = False)
+    emb.add_field(name = "98!artifact <artifact>", value = "Gives a description of the requested artifact. (alias: 98!art)", inline = False)
     emb.add_field(name = "98!rarity <rarity>", value = "Returns a random card of the selected rarity.", inline = False)
     emb.add_field(name = "98!effect <effect>", value = "Gives a description of the requested effect of keyword. (alias: 98!keyword)", inline = False)
-    emb.add_field(name = "98!generate <soul>", value = "Generates a random deck of the soul you choose, including artifacts. Call `98!generate <soul> ranked` for no DTs.", inline = False)
+    emb.add_field(name = "98!generate <soul>", value = "Generates a random deck of the soul you choose, including artifacts. Call `98!generate <soul> ranked` for no DTs. (alias: 98!gen)", inline = False)
     emb.add_field(name = "98!help", value = "Shows commands.", inline = False)
     await ctx.send(embed=emb)
                         
