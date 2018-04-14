@@ -133,13 +133,10 @@ def get_images(url, card, rat = None):
     links = []
     try:
         soup = bs(urlopen(url).read(), "html.parser")
-##        soup = html.parse(urlopen(url))
     except:
         return "`* Card Not Found.`"
     images = [img for img in soup.findAll('img')]
-##    images = [img for img in soup.find_class('img')]
     image_links = [each.get('src') for each in images]
-##    image_links = [each.text_content('src') for each in images]
     for each in image_links:
         if "vignette.wikia.nocookie.net/undercards/images/" in each:
             links.append(each)
@@ -172,10 +169,16 @@ async def post(ctx, *args):
     for l in args:
         post += str(l) + " "
     post = post[:-1]
-    if post.startswith(":") and post.endswith(":"):
-        await ctx.send(post)
-    else:
-        await ctx.send("`" + post + "`")
+    await ctx.send(post)
+
+@commands.is_owner()
+@nine.command(pass_context=True)
+async def say(ctx, *args):
+    post = ""
+    for l in args:
+        post += str(l) + " "
+    post = post[:-1]
+    await ctx.send("`" + post + "`")
 
 @nine.command(pass_context=True)
 async def check(ctx, *args):
@@ -227,7 +230,7 @@ async def soul(ctx, *args):
     else:
         await ctx.send("`* Soul Not Found.`")
     
-@nine.command(name = "artifact", aliases = ["art"], pass_context=True)
+@nine.command(name = "artifact", aliases = ["art", "artefact"], pass_context=True)
 async def artifact(ctx, *args):
     """Gives a description of the requested artifact."""
     art = ""
@@ -420,7 +423,7 @@ def wild(card):
         return get_images(url, card, rat)
     
 def rep(text):
-    text = text.replace(" ", "_").title().replace("To ", "to ").replace("Of", "of").replace("'S", "'s").replace("Mtt", "MTT").replace("Neo", "NEO")
+    text = text.replace(" ", "_").title().replace("To_", "to_").replace("Of", "of").replace("'S", "'s").replace("Mtt", "MTT").replace("Neo", "NEO")
     return text
 
 nine.remove_command("help")
@@ -432,7 +435,7 @@ async def help(ctx):
     emb.add_field(name = "98!greet", value = "Says hello.", inline = False)
     emb.add_field(name = "98!check <card>", value = "Checks Undercards Wiki for the requested card.\n('...' for autocomplete, but only with full keywords)", inline = False)
     emb.add_field(name = "98!soul <soul>", value = "Returns information on the specified soul, and the spells of that class. (alias: 98!class)", inline = False)
-    emb.add_field(name = "98!artifact <artifact>", value = "Gives a description of the requested artifact. (alias: 98!art)", inline = False)
+    emb.add_field(name = "98!artifact <artifact>", value = "Gives a description of the requested artifact. (aliases: 98!art, 98!artefact)", inline = False)
     emb.add_field(name = "98!rarity <rarity>", value = "Returns a random card of the selected rarity.", inline = False)
     emb.add_field(name = "98!effect <effect>", value = "Gives a description of the requested effect of keyword. (alias: 98!keyword)", inline = False)
     emb.add_field(name = "98!generate <soul>", value = "Generates a random deck of the soul you choose, including artifacts. Call `98!generate <soul> ranked` for no DTs. (alias: 98!gen)", inline = False)
