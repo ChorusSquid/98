@@ -154,10 +154,14 @@ def get_images(url, card, rat = None):
                 links.remove(pack)
             else:
                 posts.append(pack)
-    if not posts:       
-        return links[0].replace("/scale-to-width-down/305", "").replace("/scale-to-width-down/220", "")
-    else:       
-        return posts[0].replace("/scale-to-width-down/305", "").replace("/scale-to-width-down/220", "")
+    if not posts:
+        if "scale-to-width-down/" in links[0]:
+            links[0] = links[0][0:104] + links[0][127:]
+        return links[0]
+    else:
+        if "scale-to-width-down/" in posts[0]:
+            posts[0] = posts[0][0:104] + posts[0][127:]
+        return posts[0]
 
 @nine.event
 async def on_ready():
