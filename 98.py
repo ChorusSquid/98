@@ -39,7 +39,7 @@ spells = ['Break', 'Force of Nature', 'Fridge', 'Protection',
           'Contamination',
           'Hyper Goner']
 monsters = [m for m in prices if m not in spells]
-gen = {"Bun": "Bunbun", "Dog Residue": "Annoying Dog", "Doodlebog": "So Sorry", "Gaster Blaster": "Gaster", "Gift": "Gift Bear", "Kid Slime": "Dad Slime", "Left Tentacle": "Onion San", "Load": "Omega Flowey", "Lost Soul 1": "Angel of Death", "Lost Soul 2": "Angel of Death", "Lost Soul 3": "Angel of Death", "Lost Soul 4": "Angel of Death", "Lost Soul 5": "Angel of Death", "Lost Soul 6": "Angel of Death", "Mettabot": "Dancer Mettaton", "Pebble": "Rock", "Right Tentacle": "Onion San", "Temmie 2": "Temmie", "Thundersnail": "Snail Trainer"}
+gen = {"Bun": "Bunbun", "Dog Residue": "Annoying Dog", "Doodlebog": "So Sorry", "Gaster Blaster": "Gaster", "Gift": "Gift Bear", "Kid Slime": "Dad Slime", "Left Tentacle": "Onion San", "Load": "Omega Flowey", "Lost Soul 1": "Angel of Death", "Lost Soul 2": "Angel of Death", "Lost Soul 3": "Angel of Death", "Lost Soul 4": "Angel of Death", "Lost Soul 5": "Angel of Death", "Lost Soul 6": "Angel of Death", "Lost Souls": "Angel of Death", "Mettabot": "Dancer Mettaton", "Pebble": "Rock", "Right Tentacle": "Onion San", "Temmie 2": "Temmie", "Tentacles": "Onion San", "Thundersnail": "Snail Trainer"}
 
 costs = {'Break': 0, 'Force of Nature': 0, 'Fridge': 0, 'Protection': 0, 'Tiny Froggit': 0,
          'Acceleration': 1, 'Assault': 1, 'Blue Snail': 1, 'Dummy': 1, 'Heal': 1, 'Inflation': 1, 'Investment': 1, 'Penetration': 1, 'Poison': 1, 'Red Snail': 1,  'Spider': 1, 'Snowman': 1, 'Will to Fight': 1, 'Yellow Snail': 1,
