@@ -143,8 +143,8 @@ def get_images(url, card, rat = None):
         for r in rarities:
             if r in pack:
                 links.remove(pack)
+    posts = []
     if rat:
-        posts = []
         for pack in links:
             if "Skin" in pack:
                 links.remove(pack)
