@@ -126,7 +126,6 @@ effects = {"Magic": "The monster will trigger its effect when played on the boar
            "Determination": "This monster can't be silenced."}
 
 nine = commands.Bot(command_prefix = "98!", description = "`* I Am 98, A Bot Dedicated to the Card Game Known As 'Undercards'.`", case_insensitive = True)
-cli = discord.Client
 
 def get_images(url, card, rat = None):
     rarities = ["COMMON", "RARE", "EPIC", "LEGENDARY", "DETERMINATION", "UNKOWN"]
@@ -145,12 +144,20 @@ def get_images(url, card, rat = None):
             if r in pack:
                 links.remove(pack)
     if rat:
+        posts = []
         for pack in links:
-            if rep(rat) not in pack:
+            if "Skin" in pack:
+                links.remove(pack)
+            elif rep(rat) not in pack:
                 links.remove(pack)
             elif rat.title().split()[0] not in pack:
                 links.remove(pack)
-    return links[0].replace("/scale-to-width-down/305", "").replace("/scale-to-width-down/220", "")
+            else:
+                posts.append(pack)
+    if not posts:       
+        return links[0].replace("/scale-to-width-down/305", "").replace("/scale-to-width-down/220", "")
+    else:       
+        return posts[0].replace("/scale-to-width-down/305", "").replace("/scale-to-width-down/220", "")
 
 @nine.event
 async def on_ready():
