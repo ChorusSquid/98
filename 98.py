@@ -158,11 +158,13 @@ def get_images(url, card, rat = None):
                 posts.append(pack)
     if not posts:
         if "scale-to-width-down/" in links[0]:
-            links[0] = links[0][0:104] + links[0][127:]
+            find = links[0].find("scale-to-width-down/")
+            links[0] = links[0][0:find] + links[0][find + 23:]
         return links[0]
     else:
         if "scale-to-width-down/" in posts[0]:
-            posts[0] = posts[0][0:104] + posts[0][127:]
+            find = posts[0].find("scale-to-width-down/")
+            posts[0] = posts[0][0:find] + posts[0][find + 23:]
         return posts[0]
 
 @nine.event
