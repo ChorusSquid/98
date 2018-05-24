@@ -148,7 +148,7 @@ def get_images(url, card, rat = None):
     posts = []
     if rat:
         for pack in links:
-            if "Skin" in pack:
+            if pack.find("Skin") != -1:
                 links.remove(pack)
             elif rep(rat) not in pack:
                 links.remove(pack)
