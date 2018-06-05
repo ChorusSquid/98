@@ -40,7 +40,7 @@ spells = ['Break', 'Force of Nature', 'Fridge', 'Protection', 'Shopping',
           'Contamination',
           'Hyper Goner']
 monsters = [m for m in prices if m not in spells]
-gen = {"Bun": "Bunbun", "Dog Residue": "Annoying Dog", "Doodlebog": "So Sorry", "Gaster Blaster": "Gaster", "Gift": "Gift Bear", "Kid Slime": "Dad Slime", "Left Tentacle": "Onion San", "Load": "Omega Flowey", "Lost Soul 1": "Angel of Death", "Lost Soul 2": "Angel of Death", "Lost Soul 3": "Angel of Death", "Lost Soul 4": "Angel of Death", "Lost Soul 5": "Angel of Death", "Lost Soul 6": "Angel of Death", "Lost Souls": "Angel of Death", "Mettabot": "Dancer Mettaton", "Pebble": "Rock", "Right Tentacle": "Onion San", "Temmie 2": "Temmie", "Tentacles": "Onion San", "Thundersnail": "Snail Trainer"}
+gen = {"Bun": "Bunbun", "Dog Residue": "Annoying Dog", "Doodlebog": "So Sorry", "Gaster Blaster": "Gaster", "Gift": "Gift Bear", "Kid Slime": "Dad Slime", "Left Tentacle": "Onion San", "Load": "Omega Flowey", "Lost Souls": "Angel of Death", "Lost Soul 1": "Angel of Death", "Lost Soul 2": "Angel of Death", "Lost Soul 3": "Angel of Death", "Lost Soul 4": "Angel of Death", "Lost Soul 5": "Angel of Death", "Lost Soul 6": "Angel of Death", "Lost Souls": "Angel of Death", "Mettabot": "Dancer Mettaton", "Pebble": "Rock", "Right Tentacle": "Onion San", "Temmie 2": "Temmie", "Tentacles": "Onion San", "Thundersnail": "Snail Trainer"}
 
 costs = {'Break': 0, 'Force of Nature': 0, 'Fridge': 0, 'Protection': 0, 'Shopping': 0, 'Tiny Froggit': 0,
          'Acceleration': 1, 'Assault': 1, 'Blue Snail': 1, 'Dummy': 1, 'Heal': 1, 'Inflation': 1, 'Investment': 1, 'Penetration': 1, 'Poison': 1, 'Red Snail': 1,  'Spider': 1, 'Snowman': 1, 'Will to Fight': 1, 'Yellow Snail': 1,
@@ -63,10 +63,10 @@ costs = {'Break': 0, 'Force of Nature': 0, 'Fridge': 0, 'Protection': 0, 'Shoppi
          'Hyper Goner': 35,
          'Chara': 40}
 
-rarities = {"common": ['Aaron', 'Assault', 'Astigmatism', 'Blue Laser', 'Blue Snail', 'Bomb', 'Break', 'Bridge Seed', 'Bunbun', 'Cactus', 'Candy Dish', 'Charles', 'Crazy Bun', 'Dad Slime', 'Dog Food', 'Dummy', 'Echo Flower', 'Endogeny', 'Everyman', 'Faun', 'Ferry', 'Final Froggit', 'Fishing Rod', 'Force of Nature', 'Fortune', 'Fridge', 'Froggit', 'Froggit Trio', 'Fuku Fire', 'Gaster Follower 1', 'Gaster Follower 2', 'Gaster Follower 3', 'Gift Bear', 'Golden Flowers', 'Heal', 'Heats Flamesman', 'Hot Dog Vulkin', 'Ice', 'Ice Cap', 'Igloo', 'Investment', 'Janitor', 'Jerry', 'Knife', 'Knight Knight', 'Lamp', 'Lemon Bread', 'Loox', 'Loren', 'Mace', 'Madjick', 'Memory Head', 'Microwave', 'Migosp', 'Migospel', 'Moldbygg', 'Moldessa', 'Moldsmal', 'MTT Fountain', 'Oni', 'Orange Laser', 'Parsnik', 'Pie', 'Poison', 'Politics Bear', 'Protection', 'Punishment', 'Pyrope', 'Reaper Bird', 'Receptionist 1', 'Red Snail', 'Resurrection', 'Rock', 'Royal Guard 1', 'Royal Guard 2', 'Sad Customer', 'Sad Dragon', 'Scarf Mouse', 'Script Bomb', 'Shambling Mass', 'Sharing', 'Shootout', 'Shyren', 'Slowing', 'Small Bird', 'Snowdrake', "Snowdrake's Mom", 'Snowman', 'Spider', 'Spider Web', 'Strafe', 'Strength', 'Tiny Froggit', 'Tree', 'Tsunderplane', 'Ugly Fish', 'Vegetoid', 'Vulkin', 'Water Cooler', 'Whimsalot', 'Whimsun', 'Will to Fight', 'Worsening', 'Woshua', 'Yellow Snail'],
-            "rare": ["Aaron's Secret", 'Allergic Temmie', 'Annoying Dog', 'Another Chance', 'Big Bob', 'Big Mouth', 'Burgerpants', 'Chilldrake', 'Clam Boy', 'Clam Girl', 'Coffee Man', 'Coffin', 'Cold Winter', 'Defrosting', 'Diamond Boy 1', 'Diamond Boy 2', 'Dimensional Box', 'Disco Ball', 'Dog House', 'Dogamy', 'Dogaressa', 'Doggo', 'Echo Fish', 'Elder Puzzler', 'Explosion', 'Expulsion', 'Feast', 'Fire Trap', 'Garbage', 'Glad Dummy', 'Glyde', 'Greater Dog', 'Gyftrot', 'Ice Wolf', 'Lesser Dog', 'Librarian', 'Mad Dummy', 'Manticore', 'Memorial Statue', 'Monster Kid', "Muffet's Pet", 'Nacarat Jester', 'Nice Cream Guy', 'Papyrus Statue', 'Penetration', 'Pollutant Gas', 'Punk Hamster', 'Receptionist 2', 'Red Bird', 'Redacted', 'Same Fate', 'Shopping', 'Skateboard Girl', 'Snow Poff', 'Snowdin Sign', 'So Sorry', 'Soothing', 'Temmie', 'Temmie Statue', 'Termination', 'Timer', 'Trash Tornado', "Undyne's Spears", "Vulkin's Cloud"],
-            "epic": ['Acceleration', 'Alphys', 'Asriel', 'Big Bomb', 'Bob', 'Brain Freeze', 'Brain Shift', 'Bratty', 'Catty', 'Cloning', 'Contamination', 'Dancer Mettaton', 'Final Charge', 'Flowey', 'Gaster', 'Goner Kid', 'Grillby', 'Headshot', 'Heal Delivery', 'Hyper Goner', 'Inflation', 'Innkeeper', 'Last Dream', 'Longevity', 'Mettaton', 'Multi Shot', 'Napstablook',  'Onion San', 'Receptionist 3', 'River Person', 'Snail Trainer', 'Snow Storm', 'Test of Will', 'Trader Temmie'],
-            "legendary": ['Asgore', 'Asriel Dreemurr', 'Casual Undyne', 'Gerson', 'Mettaton Ex', 'Mettaton NEO', 'Muffet', 'Papyrus', 'Sans', 'Toriel', 'Undyne'],
+rarities = {"common": ['Aaron', 'Assault', 'Astigmatism', 'Bench', 'Blue Laser', 'Blue Snail',  'Bomb', 'Bone Painting', 'Break', 'Bridge Seed', 'Bunbun', 'Cactus', 'Candy Dish', 'Charles', 'Crazy Bun', 'Dad Slime', 'Dog Food', 'Dress Lion', 'Dummy', 'Echo Flower', 'Endogeny', 'Everyman', 'Eye', 'Faun', 'Ferry', 'Final Froggit', 'Fishing Rod', 'Force of Nature', 'Fortune', 'Fox Head', 'Fridge', 'Froggit', 'Froggit Trio', 'Fuku Fire', 'Gaster Follower 1', 'Gaster Follower 2', 'Gaster Follower 3', 'Gift Bear', 'Golden Flowers', 'Heal', 'Heats Flamesman', 'Hot Dog Vulkin', 'Ice', 'Ice Cap', 'Igloo', 'Investment', 'Janitor', 'Jerry', 'Knife', 'Knight Knight', 'Lamp', 'Lemon Bread', 'Loox', 'Loren', 'Mace', 'Madjick', 'Memory Head', 'Microwave', 'Migosp', 'Migospel', 'Moldbygg', 'Moldessa', 'Moldsmal', 'MTT Fountain', 'Oni', 'Orange Laser', 'Parsnik', 'Pie', 'Poison', 'Politics Bear', 'Protection', 'Punishment', 'Pyrope', 'Reaper Bird', 'Receptionist 1', 'Red Snail', 'Resurrection', 'Rock', 'Royal Guard 1', 'Royal Guard 2', 'Sad Customer', 'Sad Dragon', 'Scarf Mouse', 'Script Bomb', 'Shambling Mass', 'Sharing', 'Shootout', 'Shyren', 'Slowing', 'Small Bird', 'Snowdrake', "Snowdrake's Mom", 'Snowman', 'Spider', 'Spider Web', 'Strafe', 'Strength', 'Tiny Froggit', 'Tree', 'Tsunderplane', 'TV', 'Ugly Fish', 'Vegetoid', 'Vulkin', 'Water Cooler', 'Whimsalot', 'Whimsun', 'Will to Fight', 'Worsening', 'Woshua', 'Yellow Snail'],
+            "rare": ["Aaron's Secret", 'Allergic Temmie', 'Annoying Dog', 'Another Chance', 'Big Bob', 'Big Mouth', 'Burgerpants', 'Burger Bush', 'Business Dude', 'Chilldrake', 'Clam Boy', 'Clam Girl', 'Coffee Man', 'Coffin', 'Cold Winter', 'Defrosting', 'Diamond Boy 1', 'Diamond Boy 2', 'Dimensional Box', 'Disco Ball', 'Dog House', 'Dogamy', 'Dogaressa', 'Doggo', 'Echo Fish', 'Editor 1 ', 'Editor 2', 'Elder Puzzler', 'Explosion', 'Expulsion', 'Feast', 'Fire Trap', 'Garbage', 'Glad Dummy', 'Glyde', 'Greater Dog', 'Gyftrot', 'Ice Wolf', 'Lesser Dog', 'Librarian', 'Mad Dummy', 'Manticore', 'Memorial Statue', 'Monster Kid', "Muffet's Pet", 'Nacarat Jester', 'Nice Cream Guy', 'Papyrus Statue', 'Penetration', 'Pollutant Gas', 'Punk Hamster', 'Receptionist 2', 'Red Bird', 'Redacted', 'Same Fate', 'Shopping', 'Skateboard Girl', 'Snow Poff', 'Snowdin Sign', 'So Sorry', 'Soothing', 'Temmie', 'Temmie Statue', 'Termination', 'Timer', 'Trash Tornado', "Undyne's Spears", "Vulkin's Cloud"],
+            "epic": ['Acceleration', 'Alphys', 'Asriel', 'Big Bomb', 'Bob', 'Brain Freeze', 'Brain Shift', 'Bratty', 'Catty', 'Cloning', 'Contamination', 'Dancer Mettaton', 'Final Charge', 'Flowey', 'Gaster', 'Goner Kid', 'Grillby', 'Headshot', 'Heal Delivery', 'Hot Dog Harpy', 'Hyper Goner', 'Inflation', 'Innkeeper', 'Last Dream', 'Longevity', 'Mettaton', 'Multi Shot', 'Napstablook',  'Onion San', 'Ragel', 'Receptionist 3', 'River Person', 'Robot 98', 'Snail Trainer', 'Snow Storm', 'Test of Will', 'Throne', 'Trader Temmie'],
+            "legendary": ['Asgore', 'Asriel Dreemurr', 'Cool Papyrus', 'Casual Undyne', 'Gerson', 'Mettaton Ex', 'Mettaton NEO', 'Muffet', 'Papyrus', 'Sans', 'Toriel', 'Undyne'],
             "determination": ['Angel of Death', 'Chara', 'Frisk', 'Omega Flowey', 'The Heroine']}
 
 classes = {"DT": ["`'Determination: Start the game with 1 extra life. When you would die, gain 15 HP instead.'`", 'Another Chance', 'Hyper Goner', 'Knife', 'Last Dream', 'Resurrection', 'Same Fate', 'Will to Fight'],
@@ -80,7 +80,7 @@ classes = {"DT": ["`'Determination: Start the game with 1 extra life. When you w
 arts = {"Normal": {"Copycat": "Shuffle your starting hand into your deck. Add a copy of your opponent's hand into your hand.",
                    "Draw": "Draw one more card every 4 turns (except turn 1).",
                    "Experience": "Increase XP reward by 25%.",
-                   "Froggits": "Summon 2 ally Tiny Froggits when your second turn begins.",
+                   "Froggits": "At the start of the game, add a Tiny Froggit to your hand, and add a Froggit and Final Froggit to your deck.",
                    "Health": "Start the game with 35/35 HP.",
                    "Hourglass": "Your Future effects are triggered one turn earlier.",
                    "Poke": "Deal 5 damage to your opponent at the start of the game.",
@@ -148,14 +148,11 @@ def get_images(url, card, rat = None):
     posts = []
     if rat:
         for pack in links:
-            if pack.find("Skin") != -1:
-                links.remove(pack)
-            elif rep(rat) not in pack:
-                links.remove(pack)
-            elif rat.title().split()[0] not in pack:
-                links.remove(pack)
-            else:
-                posts.append(pack)
+            if pack.find("Skin") == -1:
+                if True: # rep(rat) in pack:
+                    if rat.title().split()[0] in pack:
+                        if rat.title().split()[-1] in pack:
+                            posts.append(pack)
     if not posts:
         if "scale-to-width-down/" in links[0]:
             find = links[0].find("scale-to-width-down/")
