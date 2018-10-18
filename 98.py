@@ -90,7 +90,7 @@ arts = {"Normal": {"Copycat": "Shuffle your starting hand into your deck. Add a 
                    "Reinforcement": "Add 5 random monsters with +2/+2 at the end of your deck when the game begins.",
                    "Solidity": "Give +1 HP to your Taunt monsters when the game begins.",
                    "Spy": "Start of turn 1 and every 5th turn: Reveal the enemy's hand and give their first spell +1 cost.",
-                   "Veteran": Your monsters with => 3 ATK have: "Murder: Gain +1 ATK.",
+                   "Veteran": "Your monsters with => 3 ATK have: \"Murder: Gain +1 ATK.\"",
                    "Vitality": "Whenever an ally monster or spell heals a damaged monster to max HP, give +1 HP to the target",
                    "Will": "Your monsters with Can't attack can attack."},
         "Legendary": {"Arcane Scepter": "Whenever you cast a spell with a base cost equals or greater than 2, cast a random spell on a random target.",
