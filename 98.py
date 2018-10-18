@@ -8,11 +8,11 @@ from urllib.request import urlopen, urlretrieve
 from random import *
 import os
 
-prices = ['Break', 'Force of Nature', 'Fridge', 'Protection', 'Shopping', 'Tiny Froggit',
-          'Acceleration', 'Assault', 'Blue Snail', 'Dummy', 'Heal', 'Inflation', 'Investment', 'Penetration', 'Poison', 'Red Snail', 'Spider', 'Snowman', 'Will to Fight', 'Yellow Snail',
-          'Froggit', 'Moldsmal', 'Migosp', 'Loox', 'Annoying Dog', 'Bridge Seed', 'Charles', 'Defrosting', 'G Follower 1', 'Lamp', 'Monster Kid', 'Pie', 'Ragel', 'Strength', 'Temmie',
-          'Allergic Temmie', 'Big Bob', 'Bomb', 'Burger Bush', 'Cactus', 'Candy Dish', 'Cloning', 'Crazy Bun', 'Diamond Boy 1', 'Diamond Boy 2', 'Doggo', 'Echo Flower', 'Ferry', 'Fishing Rod', 'Flowey', 'Fox Head', 'Goner Kid', 'Ice Cap', 'Janitor', 'Knife', 'Mace', 'Memorial Statue', 'Microwave', 'Moldbygg', 'Napstablook', 'Punishment', 'Punk Hamster', 'Receptionist 3', 'Resurrection', 'Scarf Mouse', 'Script Bomb', 'Shootout', 'Shyren', 'Slowing', 'Soothing', 'Spider Web', 'Temmie Statue', 'Timer', 'Trash Tornado', 'Vegetoid', 'Water Cooler', 'Whimsun', 'Worsening',
-          'Blue Laser', 'Bone Painting', 'Chilldrake', 'Coffin', 'Disco Ball', 'Editor 1', 'Editor 2', 'Faun', 'Feast', 'Fire Trap', 'Froggit Trio', 'Fuku Fire', 'Glad Dummy', 'Golden Flowers', 'Heats Flamesman', 'Ice', 'Last Dream', 'Librarian', 'Longevity', 'Memory Head', 'Mettaton', 'Migospel', 'Moldessa', 'Orange Laser', 'Parsnik', 'Politics Bear', 'Pollutant Gas', 'Receptionist 2', 'Redacted', 'Small Bird', 'Snow Poff', 'Snowdin Sign', 'Snowdrake', 'Strafe', 'Termination', 'Tree', 'Vulkin', "Vulkin's Cloud",
+prices = ['Break', 'Force of Nature', 'Fridge', 'Golden Hit', 'Protection', 'Shopping', 'Tiny Froggit',
+          'Acceleration', 'Assault', 'Blue Snail', 'Dummy', 'Heal', 'Inflation', 'Investment', 'Penetration', 'Poison', 'Red Snail', 'Sacrifice', 'Spider', 'Snowman', 'Will to Fight', 'Yellow Snail',
+          'Froggit', 'Moldsmal', 'Migosp', 'Loox', 'Annoying Dog', 'Bridge Seed', 'Charles', 'Defrosting', 'G Follower 1', 'Ice Replica', 'Lamp', 'Monster Kid', 'Pie', 'Ragel', 'Siphoning', 'Strength', 'Temmie',
+          'Allergic Temmie', 'Big Bob', 'Bomb', 'Burger Bush', 'Cactus', 'Candy Dish', 'Cloning', 'Crazy Bun', 'Diamond Boy 1', 'Diamond Boy 2', 'Doggo', 'Echo Flower', 'Ferry', 'Fishing Rod', 'Flowey', 'Fox Head', 'Goner Kid', 'Ice Cap', 'Janitor', 'Knife', 'Mace', 'Memorial Statue', 'Microwave', 'Moldbygg', 'Napstablook', 'Punishment', 'Punk Hamster', 'Rage', 'Receptionist 3', 'Resurrection', 'Scarf Mouse', 'Script Bomb', 'Shootout', 'Shyren', 'Slowing', 'Soothing', 'Spider Web', 'Temmie Statue', 'Timer', 'Trash Tornado', 'Vegetoid', 'Water Cooler', 'Whimsun', 'Worsening',
+          'Blue Laser', 'Bone Painting', 'Chilldrake', 'Coffin', 'Disco Ball', 'Editor 1', 'Editor 2', 'Fast Sanction', 'Faun', 'Feast', 'Fire Trap', 'Froggit Trio', 'Fuku Fire', 'Glad Dummy', 'Golden Flowers', 'Heats Flamesman', 'Ice', 'Last Dream', 'Librarian', 'Longevity', 'Memory Head', 'Mettaton', 'Migospel', 'Moldessa', 'Octofriend', 'Orange Laser', 'Parsnik', 'Politics Bear', 'Pollutant Gas', 'Receptionist 2', 'Redacted', 'Small Bird', 'Snow Poff', 'Snowdin Sign', 'Snowdrake', 'Strafe', 'Termination', 'Tree', 'Vulkin', "Vulkin's Cloud",
           'Aaron', "Aaron's Secret", 'Alphys', 'Another Chance', 'Asriel', 'Bench', 'Big Mouth', 'Bob', 'Brain Shift', 'Bunbun', 'Clam Boy', 'Cold Winter', 'Dimensional Box', 'Dog Food', 'Dog House', 'Dogamy', 'Dogaressa', 'Echo Fish', 'Expulsion', 'Garbage', 'Gaster', 'Gift Bear', 'Grillby', 'Hot Dog Vulkin', 'Igloo', 'Jerry', 'Loren', 'MTT Fountain', 'Madjick', "Muffet's Pet", 'Multi Shot', 'Nacarat Jester', 'Pyrope', 'Red Bird', 'Skateboard Girl', 'So Sorry', 'Trader Temmie', "Undyne's Spears",
           'Brain Freeze', 'Burgerpants', 'Business Dude', 'Dad Slime', 'Explosion', 'Eye', 'Fortune', 'G Follower 2', 'Ice Wolf', 'Innkeeper', 'Lemon Bread', 'Lesser Dog', 'Mad Dummy', 'Nice Cream Guy', 'Papyrus Statue', 'Reaper Bird', 'Receptionist 1', 'Rock', 'Sad Customer', 'Sad Dragon', 'Sans', 'Shambling Mass', 'Snail Trainer', 'TV', 'Ugly Fish', 'Woshua',
           'Astigmatism', 'Big Bomb', 'Bratty', 'Catty', 'Clam Girl', 'Dancer Mettaton', 'Dress Lion', 'Everyman', 'Final Charge', 'Final Froggit', 'Greater Dog', 'HeadShot', 'Hot Dog Harpy', 'Manticore', 'Oni', 'Same Fate', 'Snow Storm', "Snowdrake's Mom", 'Test of Will', 'Throne', 'Whimsalot',
@@ -29,11 +29,11 @@ prices = ['Break', 'Force of Nature', 'Fridge', 'Protection', 'Shopping', 'Tiny 
           'Hyper Goner',
           'Chara']
 
-spells = ['Break', 'Force of Nature', 'Fridge', 'Protection', 'Shopping',
-          'Acceleration', 'Assault', 'Heal', 'Inflation', 'Investment', 'Penetration', 'Poison', 'Will to Fight',
-          'Defrosting', 'Strength',
-          'Cloning', 'Knife', 'Pie', 'Punishment', 'Resurrection', 'Shootout', 'Slowing', 'Soothing', 'Spider Web', 'Worsening',
-          'Feast', 'Froggit Trio', 'Last Dream', 'Pollutant Gas', 'Strafe', 'Termination',
+spells = ['Break', 'Force of Nature', 'Fridge', 'Golden Hit', 'Protection', 'Shopping',
+          'Acceleration', 'Assault', 'Heal', 'Inflation', 'Investment', 'Penetration', 'Poison', 'Sacrifice', 'Will to Fight',
+          'Defrosting', 'Ice Replica', 'Siphoning', 'Strength',
+          'Cloning', 'Knife', 'Pie', 'Punishment', 'Rage', 'Resurrection', 'Shootout', 'Slowing', 'Soothing', 'Spider Web', 'Worsening',
+          'Fast Sanction', 'Feast', 'Froggit Trio', 'Last Dream', 'Octofriend', 'Pollutant Gas', 'Strafe', 'Termination',
           "Aaron's Secret", 'Another Chance',  'Brain Shift', 'Cold Winter', 'Expulsion', 'Fortune', 'Longevity', 'Multi Shot', "Undyne's Spears",
           'Brain Freeze', 'Explosion',
           'Final Charge', 'HeadShot', 'Same Fate', 'Snow Storm', 'Test of Will',
@@ -61,10 +61,10 @@ costs = {'Break': 0, 'Force of Nature': 0, 'Fridge': 0, 'Protection': 0, 'Shoppi
          'Asriel Dreemurr': 18,
          'Angel of Death': 22,
          'Hyper Goner': 35,
-         'Chara': 40}
+         'Chara': 40
 
 rarities = {"common": ['Aaron', 'Assault', 'Astigmatism', 'Bench', 'Blue Laser', 'Blue Snail',  'Bomb', 'Bone Painting', 'Break', 'Bridge Seed', 'Bunbun', 'Cactus', 'Candy Dish', 'Charles', 'Crazy Bun', 'Dad Slime', 'Dog Food', 'Dress Lion', 'Dummy', 'Echo Flower', 'Endogeny', 'Everyman', 'Eye', 'Faun', 'Ferry', 'Final Froggit', 'Fishing Rod', 'Force of Nature', 'Fortune', 'Fox Head', 'Fridge', 'Froggit', 'Froggit Trio', 'Fuku Fire', 'Gaster Follower 1', 'Gaster Follower 2', 'Gaster Follower 3', 'Gift Bear', 'Golden Flowers', 'Heal', 'Heats Flamesman', 'Hot Dog Vulkin', 'Ice', 'Ice Cap', 'Igloo', 'Investment', 'Janitor', 'Jerry', 'Knife', 'Knight Knight', 'Lamp', 'Lemon Bread', 'Loox', 'Loren', 'Mace', 'Madjick', 'Memory Head', 'Microwave', 'Migosp', 'Migospel', 'Moldbygg', 'Moldessa', 'Moldsmal', 'MTT Fountain', 'Oni', 'Orange Laser', 'Parsnik', 'Pie', 'Poison', 'Politics Bear', 'Protection', 'Punishment', 'Pyrope', 'Reaper Bird', 'Receptionist 1', 'Red Snail', 'Resurrection', 'Rock', 'Royal Guard 1', 'Royal Guard 2', 'Sad Customer', 'Sad Dragon', 'Scarf Mouse', 'Script Bomb', 'Shambling Mass', 'Sharing', 'Shootout', 'Shyren', 'Slowing', 'Small Bird', 'Snowdrake', "Snowdrake's Mom", 'Snowman', 'Spider', 'Spider Web', 'Strafe', 'Strength', 'Tiny Froggit', 'Tree', 'Tsunderplane', 'TV', 'Ugly Fish', 'Vegetoid', 'Vulkin', 'Water Cooler', 'Whimsalot', 'Whimsun', 'Will to Fight', 'Worsening', 'Woshua', 'Yellow Snail'],
-            "rare": ["Aaron's Secret", 'Allergic Temmie', 'Annoying Dog', 'Another Chance', 'Big Bob', 'Big Mouth', 'Burgerpants', 'Burger Bush', 'Business Dude', 'Chilldrake', 'Clam Boy', 'Clam Girl', 'Coffee Man', 'Coffin', 'Cold Winter', 'Defrosting', 'Diamond Boy 1', 'Diamond Boy 2', 'Dimensional Box', 'Disco Ball', 'Dog House', 'Dogamy', 'Dogaressa', 'Doggo', 'Echo Fish', 'Editor 1 ', 'Editor 2', 'Elder Puzzler', 'Explosion', 'Expulsion', 'Feast', 'Fire Trap', 'Garbage', 'Glad Dummy', 'Glyde', 'Greater Dog', 'Gyftrot', 'Ice Wolf', 'Lesser Dog', 'Librarian', 'Mad Dummy', 'Manticore', 'Memorial Statue', 'Monster Kid', "Muffet's Pet", 'Nacarat Jester', 'Nice Cream Guy', 'Papyrus Statue', 'Penetration', 'Pollutant Gas', 'Punk Hamster', 'Receptionist 2', 'Red Bird', 'Redacted', 'Same Fate', 'Shopping', 'Skateboard Girl', 'Snow Poff', 'Snowdin Sign', 'So Sorry', 'Soothing', 'Temmie', 'Temmie Statue', 'Termination', 'Timer', 'Trash Tornado', "Undyne's Spears", "Vulkin's Cloud"],
+            "rare": ["Aaron's Secret", 'Allergic Temmie', 'Annoying Dog', 'Another Chance', 'Big Bob', 'Big Mouth', 'Burgerpants', 'Burger Bush', 'Business Dude', 'Chilldrake', 'Clam Boy', 'Clam Girl', 'Coffee Man', 'Coffin', 'Cold Winter', 'Defrosting', 'Diamond Boy 1', 'Diamond Boy 2', 'Dimensional Box', 'Disco Ball', 'Dog House', 'Dogamy', 'Dogaressa', 'Doggo', 'Echo Fish', 'Editor 1 ', 'Editor 2', 'Elder Puzzler', 'Explosion', 'Expulsion', "Fast Sanction", 'Feast', 'Fire Trap', 'Garbage', 'Glad Dummy', 'Glyde', 'Golden Hit', 'Greater Dog', 'Gyftrot', 'Ice Replica', 'Ice Wolf', 'Lesser Dog', 'Librarian', 'Mad Dummy', 'Manticore', 'Memorial Statue', 'Monster Kid', "Muffet's Pet", 'Nacarat Jester', 'Nice Cream Guy', 'Octofriend', 'Papyrus Statue', 'Penetration', 'Pollutant Gas', 'Punk Hamster', 'Rage', 'Receptionist 2', 'Red Bird', 'Redacted', 'Sacrifice', 'Same Fate', 'Shopping', 'Siphoning', 'Skateboard Girl', 'Snow Poff', 'Snowdin Sign', 'So Sorry', 'Soothing', 'Temmie', 'Temmie Statue', 'Termination', 'Timer', 'Trash Tornado', "Undyne's Spears", "Vulkin's Cloud"],
             "epic": ['Acceleration', 'Alphys', 'Asriel', 'Big Bomb', 'Bob', 'Brain Freeze', 'Brain Shift', 'Bratty', 'Catty', 'Cloning', 'Contamination', 'Dancer Mettaton', 'Final Charge', 'Flowey', 'Gaster', 'Goner Kid', 'Grillby', 'Headshot', 'Heal Delivery', 'Hot Dog Harpy', 'Hyper Goner', 'Inflation', 'Innkeeper', 'Last Dream', 'Longevity', 'Mettaton', 'Multi Shot', 'Napstablook',  'Onion San', 'Ragel', 'Receptionist 3', 'River Person', 'Robot 98', 'Snail Trainer', 'Snow Storm', 'Test of Will', 'Throne', 'Trader Temmie'],
             "legendary": ['Asgore', 'Asriel Dreemurr', 'Cool Papyrus', 'Casual Undyne', 'Gerson', 'Mettaton Ex', 'Mettaton NEO', 'Muffet', 'Papyrus', 'Sans', 'Toriel', 'Undyne'],
             "determination": ['Angel of Death', 'Chara', 'Frisk', 'Omega Flowey', 'The Heroine']}
@@ -82,16 +82,16 @@ arts = {"Normal": {"Copycat": "Shuffle your starting hand into your deck. Add a 
                    "Experience": "Increase XP reward by 25%.",
                    "Froggits": "At the start of the game, add a Tiny Froggit to your hand, and add a Froggit and Final Froggit to your deck.",
                    "Health": "Start the game with 35/35 HP.",
-                   "Hourglass": "Your Future effects are triggered one turn earlier.",
+                   "Hourglass": "Your Future effects are triggered one turn earlier. Start of game: Add a Goner Kid to your deck.",
                    "Poke": "Deal 5 damage to your opponent at the start of the game.",
                    "Power": "Give +1/+1 to 4 random monsters in your deck when the game begins.",
                    "Preservation": "You won't draw at the start of your turn if your hand is full.",
                    "Prosperity": "Whenever you play a monster, heal yourself by 20% of its cost.",
                    "Reinforcement": "Add 5 random monsters with +2/+2 at the end of your deck when the game begins.",
                    "Solidity": "Give +1 HP to your Taunt monsters when the game begins.",
-                   "Spy": "Reveal your opponent's hand at the first and every 5 turns. Whenever it reveals a spell, it costs 1 more.",
-                   "Veteran": "Your monsters with 3 ATK or more gain +1 ATK whenever they attack and kill a monster.",
-                   "Vitality": "Whenever an ally monster or spell heals a damaged monster to max HP, give +1 HP to the target.",
+                   "Spy": "Start of turn 1 and every 5th turn: Reveal the enemy's hand and give their first spell +1 cost.",
+                   "Veteran": Your monsters with => 3 ATK have: "Murder: Gain +1 ATK.",
+                   "Vitality": "Whenever an ally monster or spell heals a damaged monster to max HP, give +1 HP to the target",
                    "Will": "Your monsters with Can't attack can attack."},
         "Legendary": {"Arcane Scepter": "Whenever you cast a spell with a base cost equals or greater than 2, cast a random spell on a random target.",
                       "Criticals": "Your monsters have a 20% chance to deal 100% bonus damage while attacking.",
@@ -123,7 +123,7 @@ effects = {"Magic": "The monster will trigger its effect when played on the boar
            "Silenced": "This monster can no longer use its abilities.",
            "Fatigue": "Damage dealt to players everytime they draw a card when their deck is empty. The damage is increased by 1 after each activation.",
            "Turbo": "The card will trigger its effect when drawn.",
-           "Another Chance": "Dust: Summon this monster for your opponent.",
+           "Another Chance": "Dust: Summon this monster for your opponent with +1/+1.",
            "Invulnerable": "This monster is immune to all damage.",
            "Determination": "This monster can't be silenced."}
 
