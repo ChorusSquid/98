@@ -329,10 +329,11 @@ async def tribe(ctx, *args):
     tri = tri[:-1].lower()
     if tri in tribes:
         if len(tribes[tri]) == 1:
-            await ctx.send('`There is just 1 member of the ' + tri.capitalize() + ' tribe.\nIt is:`')
+            await ctx.send('`There is just 1 member of the ' + tri.title() + ' tribe.\nIt is:`')
+            await ctx.invoke(check, choice(tribes[tri]))
         else:
-            await ctx.send('`There are ' + str(len(tribes[tri])) + ' members of the ' + tri.title() + ' tribe.\nOne is:`')
-        await ctx.invoke(check, choice(tribes[tri]))
+            await ctx.send('''`There are ' + str(len(tribes[tri])) + ' members of the ' + tri.title() + ' tribe.\n
+They are: ''' + str(tribes[tri][1:]).replace("[", "").replace("]", "") + "`")
         
 def wild(card):
     global monsters
@@ -382,10 +383,11 @@ async def help(ctx):
     emb.add_field(name = "98!greet", value = "Says hello.", inline = False)
     emb.add_field(name = "98!check <card>", value = "Checks Undercards Wiki for the requested card.\n('...' for autocomplete, but only with full keywords)", inline = False)
     emb.add_field(name = "98!soul <soul>", value = "Returns information on the specified soul, and the spells of that class. (alias: 98!class)", inline = False)
-    emb.add_field(name = "98!artifact <artifact>", value = "Gives a description of the requested artifact. (aliases: 98!art, 98!artefact)", inline = False)
+    emb.add_field(name = "98!artifact <artifact>", value = "Gives a description of the requested artifact. (alias: 98!art)", inline = False)
     emb.add_field(name = "98!rarity <rarity>", value = "Returns a random card of the selected rarity.", inline = False)
     emb.add_field(name = "98!effect <effect>", value = "Gives a description of the requested effect of keyword. (alias: 98!keyword)", inline = False)
     emb.add_field(name = "98!generate <soul>", value = "Generates a random deck of the soul you choose, including artifacts. Call `98!generate <soul> ranked` for no DTs. (alias: 98!gen)", inline = False)
+    emb.add_field(name = "98!tribe <tribe>", value = "Gives the number of cards in a tribe, as well as a list of them.", inline = False)
     emb.add_field(name = "98!help", value = "Shows commands.", inline = False)
     await ctx.send(embed=emb)
                         
