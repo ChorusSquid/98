@@ -65,11 +65,17 @@ def get_images(url, card, rat = None):
         if "scale-to-width-down/" in links[0]:
             find = links[0].find("scale-to-width-down/")
             links[0] = links[0][0:find] + links[0][find + 23:]
+        if "/revision/latest" in links[0]:
+            find = links[0].find("/revision/latest")
+            links[0] = links[0][0:find]
         return links[0]
     else:
         if "scale-to-width-down/" in posts[0]:
             find = posts[0].find("scale-to-width-down/")
             posts[0] = posts[0][0:find] + posts[0][find + 23:]
+        if "/revision/latest" in posts[0]:
+            find = posts[0].find("/revision/latest")
+            posts[0] = posts[0][0:find]
         return posts[0]
 
 @nine.event
