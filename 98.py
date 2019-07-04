@@ -316,7 +316,7 @@ async def effect(ctx, *args):
         await ctx.send('`"' + eff + ": " + effects[eff] + '"`')
     else:
         await ctx.send("`Effect Not Found.`")
-
+        
 @nine.command(pass_context=True)
 async def tribe(ctx, *args):
     global tribes
@@ -332,9 +332,9 @@ async def tribe(ctx, *args):
             await ctx.send('`There is just 1 member of the ' + tri.title() + ' tribe.\nIt is:`')
             await ctx.invoke(check, choice(tribes[tri]))
         else:
-            await ctx.send('''`There are ' + str(len(tribes[tri])) + ' members of the ' + tri.title() + ' tribe.\n
-They are: ''' + str(tribes[tri][1:]).replace("[", "").replace("]", "") + "`")
-        
+            await ctx.send('`There are ' + str(len(tribes[tri])) + ' members of the ' + tri.title() + ''' tribe.
+They are: ''' + str(tribes[tri]).replace("[", "").replace("]", "") + "`")
+
 def wild(card):
     global monsters
     global gen
