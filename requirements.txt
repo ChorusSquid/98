@@ -1,3 +1,4 @@
 git+git://github.com/Rapptz/discord.py.git@rewrite
 BeautifulSoup4
 wikia
+sqlite3
