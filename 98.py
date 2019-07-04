@@ -38,7 +38,7 @@ effects = {row[0]: row[1] for row in c.execute("""SELECT name, blurb FROM effect
 nine = commands.Bot(command_prefix = "98!", description = "`* I Am 98, A Bot Dedicated to the Card Game Known As 'Undercards'.`", case_insensitive = True)
 
 def get_images(url, card, rat = None):
-    rarities = ["COMMON", "RARE", "EPIC", "LEGENDARY", "DETERMINATION", "UNKOWN"]
+    rarities = ["BASE", "COMMON", "RARE", "EPIC", "LEGENDARY", "DETERMINATION", "UNKOWN"]
     links = []
     try:
         soup = bs(urlopen(url).read(), "html.parser")
@@ -133,20 +133,20 @@ async def soul(ctx, *args):
     elif not args:
         Class = choice(list(classes.keys()))
     else:
-        Class = args[0].upper()
-    if Class == "DETERMINATION":
-        Class = "DT"
-    if Class.startswith("PERS"):
-        Class = "PV"
-    if Class.startswith("INTEG"):
-        Class = "INTEGRITY"
+        Class = args[0].lower()
+    if Class == "determination":
+        Class = "dt"
+    if Class.startswith("pers"):
+        Class = "pv"
+    if Class.startswith("int"):
+        Class = "integrity"
     if Class in classes:
         text = classes[Class][0]
         spell = choice(classes[Class][1:])
     if text and spell:
 ##        await ctx.send(text + "\n`Here Is A Random " + text.split(":")[0][2:] + " Spell:`")
 ##        await ctx.invoke(check, spell)
-        await ctx.send(text + "\n`Here Are The Spells Of This Class: " + str(classes[Class][1:]).replace("[", "").replace("]", "") + "`")
+        await ctx.send('`' + text + '`' + "\n`Here Are The Spells Of This Class: " + str(classes[Class][1:]).replace("[", "").replace("]", "") + "`")
     else:
         await ctx.send("`* Soul Not Found.`")
     
@@ -160,17 +160,17 @@ async def artifact(ctx, *args):
     art = art[:-1].title()
     if not art:
         if randint(1, 2) == 1:
-            art = choice(list(arts["Normal"].keys()))
+            art = choice(list(arts["normal"].keys()))
         else:
-            art = choice(list(arts["Legendary"].keys()))
+            art = choice(list(arts["legendary"].keys()))
     if art.endswith("..."):
-        for i in arts["Normal"]:
+        for i in arts["normal"]:
             if art[:-3] in i:
                 fax.append(i)
-        for i in arts["Legendary"]:
+        for i in arts["legendary"]:
             if art[:-3] in i:
                 fax.append(i)
-        for i in arts["Gerson"]:
+        for i in arts["gerson"]:
             if art[:-3] in i:
                 fax.append(i)
         if len(fax) > 1:
@@ -179,15 +179,15 @@ async def artifact(ctx, *args):
             pass
         else:
             art = fax[0]
-    if (art not in arts["Normal"] and art not in arts["Legendary"] and art not in arts["Gerson"]) and not fax:
+    if (art not in arts["normal"] and art not in arts["legendary"] and art not in arts["gerson"]) and not fax:
         await ctx.send("`* Artifact Not Found.`")
     else:
-        if art in arts["Normal"]:
-            await ctx.send("`'" + art + " | Normal | " + arts["Normal"][art] + "'`")
-        elif art in arts["Legendary"]:
-            await ctx.send("`'" + art + " | Legendary | " + arts["Legendary"][art] + "'`")
-        elif art in arts["Gerson"]:
-            await ctx.send("`'" + art + " | Gerson | " + arts["Gerson"][art] + "'`")
+        if art in arts["normal"]:
+            await ctx.send("`'" + art + " | Normal | " + arts["normal"][art] + "'`")
+        elif art in arts["legendary"]:
+            await ctx.send("`'" + art + " | Legendary | " + arts["legendary"][art] + "'`")
+        elif art in arts["gerson"]:
+            await ctx.send("`'" + art + " | Gerson | " + arts["gerson"][art] + "'`")
 
 @nine.command(name = "generate", aliases = ["gen"], pass_context=True)
 async def generate(ctx, *args):
@@ -197,7 +197,7 @@ async def generate(ctx, *args):
     deck = []
     ment = []
     ranks = ""
-    limits = {"common": 3, "rare": 3, "epic": 2, "legendary": 1}
+    limits = {"base": 3, "common": 3, "rare": 3, "epic": 2, "legendary": 1}
     Det = False
     for a in args:
         ment.append(a.upper())
@@ -207,22 +207,22 @@ async def generate(ctx, *args):
         else:
             await ctx.send("`* I Can Only Handle One Soul At A Time.`")
     elif not args:
-        soul = choice(["DT", "PATIENCE", "BRAVERY", "INTEGRITY", "PV", "KINDNESS", "JUSTICE"])
+        soul = choice(['dt', 'patience', 'bravery', 'integrity', 'pv', 'kindness', 'justice'])
     if "RANKED" in ment:
         Det = True
         ranks = "Ranked "
         ment.remove("RANKED")
     if not soul:
         soul = ment[0].upper()
-    if soul == "DETERMINATION":
-        soul = "DT"
-    if soul.startswith("PERS"):
-        soul = "PV"
-    if soul.startswith("INT"):
-        soul = "INTEGRITY"
+    if soul == "determination":
+        soul = "dt"
+    if soul.startswith("pers"):
+        soul = "pv"
+    if soul.startswith("int"):
+        soul = "integrity"
     if soul not in classes:
         if soul == "RANKED":
-            soul = choice(["DT", "PATIENCE", "BRAVERY", "INTEGRITY", "PV", "KINDNESS", "JUSTICE"])
+            soul = choice(['dt', 'patience', 'bravery', 'integrity', 'pv', 'kindness', 'justice'])
         else:
             soul = None
             await ctx.send("`* Soul Not Found.`")
@@ -247,14 +247,14 @@ async def generate(ctx, *args):
                     Det = True
         rarity = randint(1, 2)
         if rarity == 1:           
-            facts.append(choice(list(arts["Normal"].keys())))
-            facts.append(choice(list(arts["Normal"].keys())))
+            facts.append(choice(list(arts["normal"].keys())))
+            facts.append(choice(list(arts["normal"].keys())))
             while facts[0] == facts[1]:
                 facts.remove(facts[1])
-                facts.append(choice(list(arts["Normal"].keys())))
+                facts.append(choice(list(arts["normal"].keys())))
             facts.sort()
         elif rarity == 2:
-            facts.append(choice(list(arts["Legendary"].keys())))
+            facts.append(choice(list(arts["legendary"].keys().remove("Criticals"))))
     if deck:
         deck.sort(key = lambda x: prices.index(x))
         post = "Your " + ranks + classes[soul][0].split(":")[0][2:] + " Deck: "
@@ -277,7 +277,7 @@ async def rarity(ctx, *args):
     if len(args) > 1:
         await ctx.send("`* I Can Only Handle One Rarity At A Time.`")
     elif not args:
-        rar = choice(["common", "rare", "epic", "legendary", "determination"])
+        rar = choice(["base", "common", "rare", "epic", "legendary", "determination"])
     else:
         rar = args[0].lower()
     if rar == "dt":
@@ -290,6 +290,7 @@ async def rarity(ctx, *args):
 async def effect(ctx, *args):
     """Gives a description of an effect or keyword."""
     global effects
+    psuedonyms = {"Kr": "KR", "Another chance": "Another Chance", "Not targetable": "Locked", "Can't attack": "Disarmed"}
     eff = ""
     if not args:
         eff = choice(list(effects.keys())) + " "
@@ -297,12 +298,9 @@ async def effect(ctx, *args):
         for i in args:
             eff += i + " "
     eff = eff[:-1].capitalize()
-    if eff == "Kr":
-        eff = "KR"
-    elif eff == "Another chance":
-        eff = "Another Chance"
-    elif eff == "Not targetable":
-        eff = "Locked"
+    for f in psuedonyms:
+        if eff == f:
+            eff = aliases[f]
     if eff in effects:
         await ctx.send('`"' + eff + ": " + effects[eff] + '"`')
     else:
