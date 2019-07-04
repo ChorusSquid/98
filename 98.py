@@ -23,6 +23,11 @@ gen = {row[0]:row[1] for row in c.execute("""SELECT name, source FROM gen ORDER 
 rarities = {}
 for r in ['base', 'common', 'rare', 'epic', 'legendary', 'determination']:
     rarities.update({r: [row[0] for row in c.execute("""SELECT name FROM cards WHERE rarity = "{}" ORDER BY name ASC""".format(r))]})
+    
+tribes = {}
+for t in ['all', 'amalgamate', 'bomb', 'dog', 'froggit', 'g follower', 'lost soul', 'mold', 'plant', 'royal guard', 'snail', 'temmie']:
+    tribes.update({t: [row[0] for row in c.execute("""SELECT name FROM cards WHERE tribe = "{}" ORDER BY name ASC""".format(t))]\
+                   + [row[0] for row in c.execute("""SELECT name FROM gen WHERE tribe = "{}" AND name != "Lost Souls" ORDER BY name ASC""".format(t))]})
 
 classes = {}
 for s in ['dt', 'patience', 'bravery', 'integrity', 'pv', 'kindness', 'justice']:
@@ -312,6 +317,23 @@ async def effect(ctx, *args):
     else:
         await ctx.send("`Effect Not Found.`")
 
+@nine.command(pass_context=True)
+async def tribe(ctx, *args):
+    global tribes
+    tri = ""
+    if not args:
+        tri = choice(list(tribes.keys())) + " "
+    else:
+        for i in args:
+            tri += i + " "
+    tri = tri[:-1].lower()
+    if tri in tribes:
+        if len(tribes[tri]) == 1:
+            await ctx.send('`There is just 1 member of the ' + tri.capitalize() + ' tribe.\nIt is:`')
+        else:
+            await ctx.send('`There are ' + str(len(tribes[tri])) + ' members of the ' + tri.title() + ' tribe.\nOne is:`')
+        await ctx.invoke(check, choice(tribes[tri]))
+        
 def wild(card):
     global monsters
     global gen
