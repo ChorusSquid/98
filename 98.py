@@ -59,7 +59,7 @@ def get_images(url, card, rat = None):
             if pack.find("Skin") == -1:
                 if True: # rep(rat) in pack:
                     if rat.title().split()[0] in pack:
-                        if rat.title().split()[-1] in pack:
+                        if rat.title().split()[-1] + "." in pack:
                             posts.append(pack)
     if not posts:
         if "scale-to-width-down/" in links[0]:
