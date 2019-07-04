@@ -1,4 +1,4 @@
 discord.py
 BeautifulSoup4
 wikia
-sqlite3
+
