@@ -360,7 +360,7 @@ by """ + skins[ski][1] + "`\nhttps://undercards.net/images/cards/" + ski.replace
         await ctx.invoke(skin, choice(pieces))
     elif ski in prices:
         if len(pieces) == 1:
-            await ctx.invoke(skin, pieces[0])
+            await ctx.invoke(skin, pieces[1])
         else:
             await ctx.send("`There are " + str(len(pieces)) + " " + ski + """ skins.
 They are: """ + str(pieces).replace("[", "").replace("]", "") + "`")
