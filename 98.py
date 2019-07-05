@@ -358,9 +358,9 @@ by """ + skins[ski][1] + "`\nhttps://undercards.net/images/cards/" + ski.replace
     elif ski in [rep(s.title()).replace("_", " ") for s in artists]:
         await ctx.send('`' + ski + ' has made ' + str(len(pieces)) + ' skins. One is:`')
         await ctx.invoke(skin, choice(pieces))
-    elif ski in prices:
+    elif ski in prices or ski in list(gen.keys()):
         if len(pieces) == 1:
-            await ctx.invoke(skin, pieces[1])
+            await ctx.invoke(skin, pieces[0])
         else:
             await ctx.send("`There are " + str(len(pieces)) + " " + ski + """ skins.
 They are: """ + str(pieces).replace("[", "").replace("]", "") + "`")
