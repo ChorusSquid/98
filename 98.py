@@ -420,6 +420,7 @@ async def help(ctx):
     emb.add_field(name = "98!effect <effect>", value = "Gives a description of the requested effect of keyword. (alias: 98!keyword)", inline = False)
     emb.add_field(name = "98!generate <soul>", value = "Generates a random deck of the soul you choose, including artifacts. Call `98!generate <soul> ranked` for no DTs. (alias: 98!gen)", inline = False)
     emb.add_field(name = "98!tribe <tribe>", value = "Gives the number of cards in a tribe, as well as a list of them.", inline = False)
+    emb.add_field(name = "98!skin <skin/artist/card>", value = "Gives information on a skin, information on an artist, or information about the skins a card has.", inline = False)
     emb.add_field(name = "98!help", value = "Shows commands.", inline = False)
     await ctx.send(embed=emb)
                         
