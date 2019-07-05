@@ -40,6 +40,9 @@ for a in ['normal', 'legendary', 'gerson']:
 
 effects = {row[0]: row[1] for row in c.execute("""SELECT name, blurb FROM effects""")}
 
+skins = {row[0]:[row[1], row[2], row[3]] for row in c.execute("""SELECT name, source, artist, cost FROM skins ORDER BY source, name ASC""")}
+artists = list(set([row[0] for row in c.execute("""SELECT artist FROM skins""")]))
+
 nine = commands.Bot(command_prefix = "98!", description = "`* I Am 98, A Bot Dedicated to the Card Game Known As 'Undercards'.`", case_insensitive = True)
 
 def get_images(url, card, rat = None):
@@ -334,6 +337,35 @@ async def tribe(ctx, *args):
         else:
             await ctx.send('`There are ' + str(len(tribes[tri])) + ' members of the ' + tri.title() + ''' tribe.
 They are: ''' + str(tribes[tri]).replace("[", "").replace("]", "") + "`")
+    else:
+        await ctx.send("`Tribe Not Found.`")
+        
+@nine.command(pass_context=True)
+async def skin(ctx, *args):
+    global skins
+    ski = ""
+    if not args:
+        ski = choice(list(skins.keys())) + " "
+    else:
+        for i in args:
+            ski += i + " "
+    ski = rep(ski[:-1].title()).replace("_", " ")
+    pieces = [k for k,v in skins.items()\
+              if ski in [rep(str(i)).replace("_", " ") for i in v]]
+    if ski in skins:
+        await ctx.send("`'" + ski + "' - " + skins[ski][0] + " - " + str(skins[ski][2]) + """ UCP
+by """ + skins[ski][1] + "`\nhttps://undercards.net/images/cards/" + ski.replace(" ", "_") + ".png")
+    elif ski in [rep(s.title()).replace("_", " ") for s in artists]:
+        await ctx.send('`' + ski + ' has made ' + str(len(pieces)) + ' skins. One is:`')
+        await ctx.invoke(skin, choice(pieces))
+    elif ski in prices:
+        if len(pieces) == 1:
+            await ctx.invoke(skin, pieces[0])
+        else:
+            await ctx.send("`There are " + str(len(pieces)) + " " + ski + """ skins.
+They are: """ + str(pieces).replace("[", "").replace("]", "") + "`")
+    else:
+        await ctx.send('`Skin Not Found.`')
 
 def wild(card):
     global monsters
