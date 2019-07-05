@@ -357,7 +357,7 @@ async def skin(ctx, *args):
 by """ + skins[ski][1] + "`\nhttps://undercards.net/images/cards/" + ski.replace(" ", "_") + ".png")
     elif ski in [rep(s.title()).replace("_", " ") for s in artists]:
         switch = ['s. One is:`', '.`']
-        await ctx.send('`' + ski + ' has made ' + str(len(pieces)) + ' skin' + switch[str(len(pieces)) == 1])
+        await ctx.send('`' + ski + ' has made ' + str(len(pieces)) + ' skin' + switch[len(pieces) == 1])
         await ctx.invoke(skin, choice(pieces))
     elif ski in prices or ski in list(gen.keys()):
         if len(pieces) == 1:
