@@ -274,7 +274,7 @@ async def generate(ctx, *args):
             facts.append(choice(list(arts["legendary"].keys().remove("Criticals"))))
     if deck:
         deck.sort(key = lambda x: prices.index(x))
-        post = "Your " + ranks + classes[soul][0].split(":")[0][2:] + " Deck: "
+        post = "Your " + ranks + classes[soul][0].split(":")[0] + " Deck: "
         for d in deck:
             post += rep(d).replace("_", " ") + ", "
         post = post[:-2]
@@ -307,7 +307,8 @@ async def rarity(ctx, *args):
 async def effect(ctx, *args):
     """Gives a description of an effect or keyword."""
     global effects
-    psuedonyms = {"Kr": "KR", "Another chance": "Another Chance", "Not targetable": "Locked", "Can't attack": "Disarmed"}
+    psuedonyms = {"Kr": "KR", "Another chance": "Another Chance", "Not targetable": "Locked", "Can't attack": "Disarmed",
+                  "Start of turn": "Turn start", "End of turn": "Turn end"}
     eff = ""
     if not args:
         eff = choice(list(effects.keys())) + " "
@@ -317,7 +318,7 @@ async def effect(ctx, *args):
     eff = eff[:-1].capitalize()
     for f in psuedonyms:
         if eff == f:
-            eff = aliases[f]
+            eff = psuedonyms[f]
     if eff in effects:
         await ctx.send('`"' + eff + ": " + effects[eff] + '"`')
     else:
