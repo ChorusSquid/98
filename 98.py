@@ -271,7 +271,7 @@ async def generate(ctx, *args):
                 facts.append(choice(list(arts["normal"].keys())))
             facts.sort()
         elif rarity == 2:
-            facts.append(choice([l for l in list(arts["legendary"].keys()) if l != "Criticals"])
+            facts.append(choice([l for l in list(arts["legendary"].keys()) if l != "Criticals"]))
     if deck:
         deck.sort(key = lambda x: prices.index(x))
         post = "Your " + ranks + classes[soul][0].split(":")[0] + " Deck: "
