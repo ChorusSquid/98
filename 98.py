@@ -217,20 +217,20 @@ async def generate(ctx, *args):
     limits = {"base": 3, "common": 3, "rare": 3, "epic": 2, "legendary": 1}
     Det = False
     for a in args:
-        ment.append(a.upper())
+        ment.append(a.lower())
     if len(ment) > 1:
-        if "RANKED" in ment:
+        if "ranked" in ment:
             pass
         else:
             await ctx.send("`* I Can Only Handle One Soul At A Time.`")
     elif not args:
         soul = choice(['dt', 'patience', 'bravery', 'integrity', 'pv', 'kindness', 'justice'])
-    if "RANKED" in ment:
+    if "ranked" in ment:
         Det = True
         ranks = "Ranked "
-        ment.remove("RANKED")
+        ment.remove("ranked")
     if not soul:
-        soul = ment[0].upper()
+        soul = ment[0].lower()
     if soul == "determination":
         soul = "dt"
     if soul.startswith("pers"):
@@ -238,7 +238,7 @@ async def generate(ctx, *args):
     if soul.startswith("int"):
         soul = "integrity"
     if soul not in classes:
-        if soul == "RANKED":
+        if soul == "ranked":
             soul = choice(['dt', 'patience', 'bravery', 'integrity', 'pv', 'kindness', 'justice'])
         else:
             soul = None
@@ -271,7 +271,7 @@ async def generate(ctx, *args):
                 facts.append(choice(list(arts["normal"].keys())))
             facts.sort()
         elif rarity == 2:
-            facts.append(choice(list(arts["legendary"].keys().remove("Criticals"))))
+            facts.append(choice([l for l in list(arts["legendary"].keys()) if l != "Criticals"])
     if deck:
         deck.sort(key = lambda x: prices.index(x))
         post = "Your " + ranks + classes[soul][0].split(":")[0] + " Deck: "
@@ -286,7 +286,7 @@ async def generate(ctx, *args):
         else:
             post = post[:-2]
         await ctx.send("`" + post + "`")
-
+                         
 @nine.command(pass_context=True)
 async def rarity(ctx, *args):
     """Returns a random card of the selected rarity."""
