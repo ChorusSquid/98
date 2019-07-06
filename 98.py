@@ -127,6 +127,8 @@ async def check(ctx, *args):
         if not card:
             card = choice(monsters)
         if rep(card).replace("_", " ")[:-1] in gen:
+            if rep(card).startswith("Lost"):
+                card = "Lost Souls"
             rat = card
             card = gen[rep(card).replace("_", " ")[:-1]]
             for bit in gen:
