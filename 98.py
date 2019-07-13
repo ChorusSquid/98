@@ -166,7 +166,7 @@ async def soul(ctx, *args):
         await ctx.send('`' + text + '`' + "\n`Here Are The Spells Of This Class: " + str(classes[Class][1:]).replace("[", "").replace("]", "") + "`")
     else:
         await ctx.send("`* Soul Not Found.`")
-    
+   
 @nine.command(name = "artifact", aliases = ["art", "artefact"], pass_context=True)
 async def artifact(ctx, *args):
     """Gives a description of the requested artifact."""
@@ -187,7 +187,7 @@ async def artifact(ctx, *args):
         for i in arts["legendary"]:
             if art[:-3] in i:
                 fax.append(i)
-        for i in arts["gerson"]:
+        for i in arts["generated"]:
             if art[:-3] in i:
                 fax.append(i)
         if len(fax) > 1:
@@ -196,15 +196,15 @@ async def artifact(ctx, *args):
             pass
         else:
             art = fax[0]
-    if (art not in arts["normal"] and art not in arts["legendary"] and art not in arts["gerson"]) and not fax:
+    if (art not in arts["normal"] and art not in arts["legendary"] and art not in arts["generated"]) and not fax:
         await ctx.send("`* Artifact Not Found.`")
     else:
         if art in arts["normal"]:
             await ctx.send("`'" + art + " | Normal | " + arts["normal"][art] + "'`")
         elif art in arts["legendary"]:
             await ctx.send("`'" + art + " | Legendary | " + arts["legendary"][art] + "'`")
-        elif art in arts["gerson"]:
-            await ctx.send("`'" + art + " | Gerson | " + arts["gerson"][art] + "'`")
+        elif art in arts["generated"]:
+            await ctx.send("`'" + art + " | Generated | " + arts["generated"][art] + "'`")
 
 @nine.command(name = "generate", aliases = ["gen"], pass_context=True)
 async def generate(ctx, *args):
