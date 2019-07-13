@@ -35,7 +35,7 @@ for s in ['dt', 'patience', 'bravery', 'integrity', 'pv', 'kindness', 'justice']
     + [row[1] for row in c.execute("""SELECT name, spells FROM souls WHERE name = '{}'""".format(s))][0].split("\n")})
 
 arts = {}
-for a in ['normal', 'legendary', 'gerson']:
+for a in ['normal', 'legendary', 'generated']:
     arts.update({a: {row[0]: row[1] for row in c.execute("""SELECT name, blurb FROM artifacts WHERE rarity = "{}" ORDER by name ASC""".format(a))}})
 
 effects = {row[0]: row[1] for row in c.execute("""SELECT name, blurb FROM effects""")}
