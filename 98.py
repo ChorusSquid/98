@@ -25,7 +25,7 @@ for r in ['base', 'common', 'rare', 'epic', 'legendary', 'determination']:
     rarities.update({r: [row[0] for row in c.execute("""SELECT name FROM cards WHERE rarity = "{}" ORDER BY name ASC""".format(r))]})
     
 tribes = {}
-for t in ['all', 'amalgamate', 'bomb', 'dog', 'froggit', 'g follower', 'lost soul', 'mold', 'plant', 'royal guard', 'snail', 'temmie']:
+for t in ['all', 'amalgamate', 'bomb', 'chaos weapon', 'dog', 'froggit', 'g follower', 'lost soul', 'mold', 'plant', 'royal guard', 'snail', 'temmie']:
     tribes.update({t: [row[0] for row in c.execute("""SELECT name FROM cards WHERE tribe = "{}" ORDER BY name ASC""".format(t))]\
                    + [row[0] for row in c.execute("""SELECT name FROM gen WHERE tribe = "{}" AND name != "Lost Souls" ORDER BY name ASC""".format(t))]})
 
