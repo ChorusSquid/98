@@ -55,7 +55,7 @@ def get_images(url, card, rat = None):
     images = [img for img in soup.findAll('img')]
     image_links = [each.get('src') for each in images]
     for each in image_links:
-        if "vignette.wikia.nocookie.net/undercards/images/" in each:
+        if "vignette.wikia.nocookie.net/undercards/images/" in each or "static.wikia.nocookie.net/undercards/images/" in each:
             links.append(each)
     for pack in links:
         for r in rarities:
